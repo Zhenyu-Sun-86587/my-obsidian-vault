@@ -89,6 +89,7 @@ var VimToggle = class extends import_obsidian.Plugin {
         }
       )
     );
+    setTimeout(() => this.syncRelativeNumbers(this.getVimMode()), 500);
   }
   /**
    * Toggles the state of vim mode in the current instance of obsidian.
@@ -96,8 +97,10 @@ var VimToggle = class extends import_obsidian.Plugin {
   toggleVimMode() {
     if (this.getVimMode()) {
       this.turnOffVimMode();
+      this.syncRelativeNumbers(false);
     } else {
       this.turnOnVimMode();
+      this.syncRelativeNumbers(true);
     }
     if (this.settings.notification) {
       new import_obsidian.Notice(
@@ -109,6 +112,22 @@ var VimToggle = class extends import_obsidian.Plugin {
   /**
    * Turns off vim mode in the current instance of obsidian.
    **/
+  
+  syncRelativeNumbers(vimOn) {
+    try {
+      const relPlugin = this.app.plugins.plugins["obsidian-relative-line-numbers"];
+      if (relPlugin) {
+        if (vimOn && !relPlugin.enabled) {
+          relPlugin.enable();
+        } else if (!vimOn && relPlugin.enabled) {
+          relPlugin.disable();
+        }
+      }
+    } catch (e) {
+      console.error("Failed to sync relative line numbers:", e);
+    }
+  }
+
   turnOffVimMode() {
     if (this.app.isMobile) {
       localStorage.removeItem("vim");
