@@ -9,5 +9,5 @@
   "readableLineLength": true,
   "strictLineBreaks": false,
   "livePreview": true,
-  "translucency": true
+  "translucency": false
 }

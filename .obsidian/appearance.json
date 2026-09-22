@@ -7,8 +7,8 @@
   "accentColor": "#7aa2f7",
   "baseFontSize": 15,
   "theme": "obsidian",
-  "translucency": true,
+  "translucency": false,
   "enabledCssSnippets": [
-    "tokyo-night-glass"
+    "workspace-integration"
   ]
 }
