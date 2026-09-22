@@ -362,7 +362,7 @@
   "convertedDocOutputFolder": "",
   "agentMode": {
     "byok": {},
-    "activeBackend": "opencode",
+    "activeBackend": "codex",
     "backends": {},
     "debugFullFrames": true,
     "notificationSound": true,

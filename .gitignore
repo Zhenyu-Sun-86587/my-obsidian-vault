@@ -15,3 +15,6 @@ desktop.ini
 .claude/
 *.bak
 copilot/
+
+.obsidian/plugins/copilot/data.json
+.obsidian/plugins/obsidian-textgenerator-plugin/data.json

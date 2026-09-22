@@ -8,7 +8,7 @@ A streamlined, robust, and keyboard-driven Obsidian vault customized with LazyVi
 - **Organized Attachments**: Auto-routed to `./assets`.
 - **Fast Inputs**: Integrated with Slash Commander (`/`), Outliner, and URL-into-selection.
 - **Deep Search**: Powered by Omnisearch (fuzzy matching + indexing).
-- **Tokyo Night**: Desktop acrylic through the editor and sidebars, blue accents, and bright text via the enabled `tokyo-night-glass` CSS snippet. Translucency is enabled in both app and appearance settings; `translucent-bg` requests native acrylic. Each pane gets one translucent tint; the plugin's additional dark overlay is set to zero to avoid stacking tints.
+- **Tokyo Night￼￼: Desktop acrylic through the editor and sidebars, bkiokyo Night**: Desktop acrylic through the editor and sidebars, blue accents, and bright text via the enabled `tokyo-night-glass` CSS snippet. Translucency is enabled in both app and appearance settings; `translucent-bg` requests native acrylic. Each pane gets one translucent tint; the plugin's additional dark overlay is set to zero to avoid stacking tints.
 - **Typography**: Maple Mono NF CN (the installed font's family name) across the interface, notes, code, and Vim indicators. Install this font on other machines; monospace is the fallback.
 - **Vim status**: Vim starts enabled. A full-width desktop footer shows the mode at bottom left and pending command keys beside it. The command indicator appears only while a key sequence is pending and the editor has focus.
 
