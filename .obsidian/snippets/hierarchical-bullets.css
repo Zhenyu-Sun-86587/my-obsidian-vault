@@ -1,47 +1,75 @@
 /* ==========================================================================
-   Level-based Bullet List Indicators & Indentation Guides
-   层级无序列表差异化标注（圆点 ➡️ 空心圆 ➡️ 实心方块 ➡️ 菱形）+ 柔和缩进线
+   VS Code 规范：有序列表层级自动蜕变 (1. -> a. -> i.)
+   兼容 阅读视图 (.markdown-rendered) 与 实时预览 (.cm-line / Live Preview)
    ========================================================================== */
 
-/* 第一级：实心圆点 (Accent 亮色) */
-.markdown-rendered ul > li,
-.cm-line:not(.HyperMD-task-line) .cm-formatting-list-ul {
-  list-style-type: disc !important;
-}
-
-/* 第二级：空心小圆圈 (Circle) */
-.markdown-rendered ul > li > ul > li,
-.cm-line:not(.HyperMD-task-line)[class*="cm-indent-2"] .cm-formatting-list-ul,
-.cm-line:not(.HyperMD-task-line)[class*="cm-indent-1"] .cm-formatting-list-ul {
-  list-style-type: circle !important;
-}
-
-/* 第三级：实心小方块 (Square) */
-.markdown-rendered ul > li > ul > li > ul > li,
-.cm-line:not(.HyperMD-task-line)[class*="cm-indent-4"] .cm-formatting-list-ul,
-.cm-line:not(.HyperMD-task-line)[class*="cm-indent-3"] .cm-formatting-list-ul {
-  list-style-type: square !important;
-}
-
-/* 实时预览 (Live Preview) 动态符号与色彩分级映射 */
-.cm-line:not(.HyperMD-task-line) .cm-formatting-list-ul {
-  display: inline-block;
-  font-weight: bold;
-  transition: color 0.2s ease, transform 0.2s ease;
-}
-
-/* 有序列表多层级：1. ➡️ a. ➡️ i. (经典罗马/字母嵌套规则) */
+/* --- 1. 阅读模式 (Reading Mode / Standard Rendered HTML) --- */
 .markdown-rendered ol {
   list-style-type: decimal !important;
 }
-.markdown-rendered ol > li > ol {
-  list-style-type: lower-alpha !important;
-}
-.markdown-rendered ol > li > ol > li > ol {
-  list-style-type: lower-roman !important;
+
+.markdown-rendered ol ol,
+.markdown-rendered ul ol {
+  list-style-type: lower-alpha !important; /* 第二级: a. b. c. */
 }
 
-/* 柔和的层级缩进参考线 (Indentation Guides) */
-.cm-indent {
-  border-right: 1px solid rgba(122, 162, 247, 0.15) !important;
+.markdown-rendered ol ol ol,
+.markdown-rendered ul ol ol,
+.markdown-rendered ol ul ol {
+  list-style-type: lower-roman !important; /* 第三级: i. ii. iii. */
+}
+
+.markdown-rendered ol ol ol ol {
+  list-style-type: decimal !important;    /* 更深层级循环回数字 */
+}
+
+/* --- 2. 实时预览模式 (Live Preview / CodeMirror 6) --- */
+/* 第一级: 保持原样数字 (1. 2. 3.) */
+.cm-line.HyperMD-list-line-1 .cm-formatting-list-ol {
+  color: var(--text-normal) !important;
+}
+
+/* 第二级 (缩进 1 次): 模拟 VS Code 显示为 lower-alpha (a. b. c.) */
+.cm-line.HyperMD-list-line-2 .cm-formatting-list-ol {
+  font-size: 0 !important; /* 隐藏原生的数字 */
+  display: inline-block !important;
+}
+
+.cm-line.HyperMD-list-line-2 .cm-formatting-list-ol::after {
+  content: "a." !important;
+  font-size: var(--font-text-size, 16px) !important;
+  color: var(--interactive-accent, #7aa2f7) !important;
+  font-family: inherit !important;
+  margin-right: 4px !important;
+  font-weight: 500 !important;
+}
+
+/* 第三级 (缩进 2 次): 模拟 VS Code 显示为 lower-roman (i. ii. iii.) */
+.cm-line.HyperMD-list-line-3 .cm-formatting-list-ol {
+  font-size: 0 !important;
+  display: inline-block !important;
+}
+
+.cm-line.HyperMD-list-line-3 .cm-formatting-list-ol::after {
+  content: "i." !important;
+  font-size: var(--font-text-size, 16px) !important;
+  color: #bb9af7 !important;
+  font-family: inherit !important;
+  margin-right: 4px !important;
+  font-weight: 500 !important;
+}
+
+/* --- 3. 无序列表层级符号递进 (Disc -> Circle -> Square) --- */
+.markdown-rendered ul {
+  list-style-type: disc !important;
+}
+
+.markdown-rendered ul ul,
+.markdown-rendered ol ul {
+  list-style-type: circle !important;
+}
+
+.markdown-rendered ul ul ul,
+.markdown-rendered ol ul ul {
+  list-style-type: square !important;
 }
