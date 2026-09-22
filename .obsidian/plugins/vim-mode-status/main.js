@@ -188,20 +188,35 @@ var VimModeStatusPlugin = class extends import_obsidian.Plugin {
     const cm = editor.cm;
     if (!cm) return null;
 
-    try {
-      const state = cm.state;
-      if (state && state.vim) {
-        if (state.vim.insertMode) return "INSERT";
-        if (state.vim.visualMode) return "VISUAL";
-        return "NORMAL";
+    // CM6 exposes the Vim adapter as cm.cm; older editors expose it directly.
+    const editorWindow = cm.dom?.ownerDocument?.defaultView || window;
+    const vimApi = editorWindow.CodeMirrorAdapter?.Vim;
+    for (const adapter of [cm.cm, cm].filter(Boolean)) {
+      let apiState;
+      try {
+        apiState = vimApi?.getVim?.(adapter);
+      } catch (e) {
+        // Some adapter versions only accept the nested CodeMirror instance.
       }
-    } catch (e) {}
+      for (const vim of [apiState, adapter.state?.vim]) {
+        if (!vim) continue;
+        if (vim.mode === "insert" || vim.insertMode) return "INSERT";
+        if (vim.mode === "visual" || vim.visualMode) return "VISUAL";
+        if (vim.mode === "normal") return "NORMAL";
+      }
+    }
 
-    const cursor = cm.dom ? cm.dom.querySelector(".cm-cursor") : null;
+    // An unrecognized state is not proof of NORMAL: try the rendered cursor.
+    const dom = cm.dom || cm.getWrapperElement?.();
+    const cursor = dom?.querySelector(".cm-cursor, .CodeMirror-cursor");
     if (cursor) {
       if (cursor.classList.contains("cm-vim-cursor-insert")) return "INSERT";
       if (cursor.classList.contains("cm-vim-cursor-visual")) return "VISUAL";
-      return "NORMAL";
+      if (cursor.classList.contains("cm-fat-cursor") || dom.classList.contains("cm-fat-cursor")) return "NORMAL";
+      const style = editorWindow.getComputedStyle(cursor);
+      // Insert uses a thin caret; normal/visual use a character-width block.
+      const width = parseFloat(style.width);
+      if (width <= 2 && parseFloat(style.borderLeftWidth) > 0) return "INSERT";
     }
 
     return "NORMAL";

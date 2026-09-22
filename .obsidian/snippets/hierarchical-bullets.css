@@ -2,6 +2,16 @@
    Obsidian 渲染后圆点 (.list-bullet::after) 真实层级蜕变
    ========================================================================== */
 
+/* Keep absolute and relative line numbers readable and stable on cursor moves. */
+.markdown-source-view .cm-lineNumbers .cm-gutterElement,
+.markdown-source-view .cm-gutterElement.relative-line-numbers-mono,
+.markdown-source-view .CodeMirror-linenumber {
+  font-size: 14px !important;
+  min-width: 3.5ch !important;
+  text-align: right !important;
+  font-variant-numeric: tabular-nums;
+}
+
 /* 1. 阅读视图 (.markdown-rendered) */
 .markdown-rendered ul > li > .list-bullet::after,
 .markdown-rendered ul > li::marker {
