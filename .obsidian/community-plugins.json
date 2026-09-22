@@ -1,7 +1,6 @@
 [
   "obsidian-vimrc-support",
   "slash-commander",
-  "editing-toolbar",
   "url-into-selection",
   "obsidian-outliner",
   "omnisearch",
@@ -12,7 +11,5 @@
   "recent-files-obsidian",
   "obsidian-linter",
   "obsidian-image-toolkit",
-  "obsidian-paste-image-rename",
-  "translucent-bg",
-  "dynamic-theme-background"
+  "obsidian-paste-image-rename"
 ]

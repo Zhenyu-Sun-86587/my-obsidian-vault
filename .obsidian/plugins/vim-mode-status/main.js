@@ -65,9 +65,16 @@ var VimModeStatusPlugin = class extends import_obsidian.Plugin {
         this.updateStatus();
       }, 80)
     );
+    this.updateStatus();
   }
 
   handleKeyDown(evt) {
+    const activeView = this.app.workspace.getActiveViewOfType(import_obsidian.MarkdownView);
+    if (!this.settings.showInStatusBar || !this.app.vault.getConfig("vimMode") ||
+        !activeView?.editor?.hasFocus()) {
+      this.resetStack();
+      return;
+    }
     if (this.currentMode !== "NORMAL" && this.currentMode !== "VISUAL") {
       this.resetStack();
       return;
@@ -154,7 +161,8 @@ var VimModeStatusPlugin = class extends import_obsidian.Plugin {
 
   updateStatus() {
     const isVimEnabled = this.app.vault.getConfig("vimMode");
-    if (!isVimEnabled) {
+    if (!isVimEnabled || !this.settings.showInStatusBar) {
+      this.currentMode = null;
       this.statusBarItem.setText("");
       this.statusBarItem.style.display = "none";
       this.resetStack();

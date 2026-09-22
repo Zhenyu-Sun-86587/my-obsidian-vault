@@ -1,0 +1,63 @@
+/* Solid reading surfaces; restrained acrylic on floating UI only. */
+body {
+  --font-interface: "Maple Mono NF CN", monospace;
+  --font-text: "Maple Mono NF CN", monospace;
+  --font-monospace: "Maple Mono NF CN", monospace;
+}
+
+body.theme-dark {
+  --text-normal: #c0caf5;
+  --text-muted: #a9b1d6;
+  --text-faint: #929bc2;
+  --background-primary: #1a1b26;
+  --background-primary-alt: #1a1b26;
+  --background-secondary: #16161e;
+  --background-secondary-alt: #16161e;
+}
+
+.theme-dark :is(.menu, .suggestion-container, .popover) {
+  background-color: #202230;
+  border: 1px solid rgba(122, 162, 247, 0.22);
+  border-radius: 10px;
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.3);
+}
+
+@supports (backdrop-filter: blur(16px)) {
+  .theme-dark :is(.menu, .suggestion-container, .popover) {
+    background-color: rgba(32, 34, 48, 0.94);
+    backdrop-filter: blur(16px);
+  }
+}
+
+/* A full-width desktop footer puts the existing Vim items at bottom left.
+   Stay in normal layout flow so the footer never covers editor content. */
+body.theme-dark:not(.is-mobile) .status-bar {
+  position: relative;
+  display: flex;
+  visibility: visible;
+  opacity: 1;
+  width: 100%;
+  flex-shrink: 0;
+  box-sizing: border-box;
+  min-height: 30px;
+  justify-content: flex-start;
+  border-radius: 0;
+  background: #16161e;
+  border-top: 1px solid rgba(122, 162, 247, 0.2);
+  color: var(--text-muted);
+}
+
+.theme-dark .status-bar-item:is(.vim-mode-status-item, .vim-cmd-stack-item) {
+  font-family: var(--font-monospace) !important;
+  font-weight: 600 !important;
+  flex-shrink: 0;
+  white-space: pre;
+  animation: none !important;
+  box-shadow: none !important;
+}
+
+.theme-dark .status-bar-item.vim-cmd-stack-item {
+  background: #292e42 !important;
+  color: #e0af68 !important;
+  border: 1px solid rgba(224, 175, 104, 0.35) !important;
+}

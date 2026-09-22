@@ -1,11 +1,14 @@
 {
-  "cssTheme": "AbsolutelyGlass",
+  "cssTheme": "Tokyo Night",
   "monospaceFontFamily": "Maple Mono NF CN",
   "textFontFamily": "Maple Mono NF CN",
   "interfaceFontFamily": "Maple Mono NF CN",
   "baseFontSizeAction": true,
-  "accentColor": "#5cf5ba",
+  "accentColor": "#7aa2f7",
   "baseFontSize": 15,
   "theme": "obsidian",
-  "translucency": true
+  "translucency": false,
+  "enabledCssSnippets": [
+    "tokyo-night-glass"
+  ]
 }
