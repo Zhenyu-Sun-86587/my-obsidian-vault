@@ -19,5 +19,9 @@
   "3d-graph",
   "contribution-graph",
   "obsidian-hover-editor",
-  "nested-ordered-numbering"
+  "nested-ordered-numbering",
+  "copilot",
+  "obsidian-textgenerator-plugin",
+  "any-ai-cli",
+  "terminal"
 ]
