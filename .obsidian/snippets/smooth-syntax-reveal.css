@@ -1,0 +1,60 @@
+/* 1. 实时预览模式下 Markdown 标记符（如 #, **, ==, ~~ 等）展开时的丝滑呼吸渐变 */
+.cm-formatting {
+  display: inline-block !important;
+  opacity: 0.85 !important;
+  transform-origin: left center !important;
+  transition: opacity 0.24s cubic-bezier(0.16, 1, 0.3, 1), 
+              transform 0.24s cubic-bezier(0.16, 1, 0.3, 1), 
+              letter-spacing 0.24s ease !important;
+}
+
+/* 光标移入当前标题行时，# 号与 ## 号灵动滑出展开与微弹 */
+.cm-active .cm-formatting-header {
+  animation: smooth-pop-in 0.22s cubic-bezier(0.34, 1.56, 0.64, 1) forwards !important;
+}
+
+/* 光标移入加粗、高亮、删除线、行内代码时的弹入动画 */
+.cm-active .cm-formatting:not(.cm-formatting-header) {
+  animation: smooth-slide-in 0.2s cubic-bezier(0.16, 1, 0.3, 1) forwards !important;
+}
+
+@keyframes smooth-pop-in {
+  0% {
+    opacity: 0;
+    transform: scale(0.6) translateX(-4px);
+    letter-spacing: -3px;
+  }
+  70% {
+    opacity: 0.9;
+    transform: scale(1.1) translateX(1px);
+    letter-spacing: 0px;
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) translateX(0);
+    letter-spacing: normal;
+  }
+}
+
+@keyframes smooth-slide-in {
+  0% {
+    opacity: 0;
+    transform: translateX(-3px);
+  }
+  100% {
+    opacity: 0.85;
+    transform: translateX(0);
+  }
+}
+
+/* 标题指示符 (#) 的高质感微光晕 */
+.cm-formatting-header {
+  color: var(--interactive-accent) !important;
+  font-weight: bold !important;
+  margin-right: 4px !important;
+}
+
+/* 2. 当前活动行的高级微聚焦呼吸（提升打字心流） */
+.cm-active.cm-line {
+  transition: background-color 0.2s ease, transform 0.15s ease !important;
+}
