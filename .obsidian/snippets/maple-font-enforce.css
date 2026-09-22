@@ -1,0 +1,6 @@
+/* 强制注入 Maple Mono NF CN 字体到所有正文和标题层级 */
+body, .markdown-rendered, .cm-scroller, .cm-content, .cm-line, 
+h1, h2, h3, h4, h5, h6,
+.view-header-title, .nav-file-title, .nav-folder-title {
+  font-family: "Maple Mono NF CN", monospace !important;
+}
