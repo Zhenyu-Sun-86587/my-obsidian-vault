@@ -270,11 +270,10 @@
     },
     "win32IntegratedDefault": {
       "args": [
-        "-i",
-        "-l"
+        "-NoLogo"
       ],
       "environment": [],
-      "executable": "D:\\Git\\bin\\bash.exe",
+      "executable": "C:\\Program Files\\PowerShell\\7\\pwsh.exe",
       "followTheme": true,
       "name": "",
       "platforms": {
@@ -295,7 +294,7 @@
       "useWin32Conhost": true
     }
   },
-  "defaultProfile": "win32IntegratedDefault",
+  "defaultProfile": null,
   "terminalOptions": {
     "documentOverride": null
   }
