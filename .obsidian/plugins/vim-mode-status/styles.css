@@ -1,5 +1,5 @@
 /* LazyVim / Lualine Style Mode Indicator */
-.status-bar-item.vim-mode-statusbar {
+.status-bar-item.vim-mode-status-item {
 	order: -999 !important; /* 强制停泊在底部状态栏最左侧 */
 	padding: 3px 12px !important;
 	margin: 2px 4px 2px 2px !important;
@@ -14,53 +14,53 @@
 }
 
 /* NORMAL - 经典 Tokyo Night / LazyVim 冰蓝 */
-.vim-mode-statusbar.is-normal {
+.vim-mode-status-item.mode-normal {
 	background-color: #7aa2f7 !important;
 	color: #15161e !important;
 }
 
 /* INSERT - 翠绿 */
-.vim-mode-statusbar.is-insert {
+.vim-mode-status-item.mode-insert {
 	background-color: #9ece6a !important;
 	color: #15161e !important;
 }
 
-/* VISUAL - 耀眼暖橙 / 紫金 */
-.vim-mode-statusbar.is-visual {
+/* VISUAL - 耀眼淡紫 */
+.vim-mode-status-item.mode-visual {
 	background-color: #bb9af7 !important;
 	color: #15161e !important;
 }
 
 /* REPLACE - 警戒红 */
-.vim-mode-statusbar.is-replace {
+.vim-mode-status-item.mode-replace {
 	background-color: #f7768e !important;
 	color: #15161e !important;
 }
 
-/* COMMAND - 青蓝 */
-.vim-mode-statusbar.is-command {
-	background-color: #7dcfff !important;
-	color: #15161e !important;
-}
-
-/* LazyVim Showcmd 按键栈指示器 (紧随其后) */
-.status-bar-item.vim-key-stack-statusbar {
+/* LazyVim Showcmd 按键栈指示器 (经典琥珀金 / 鎏金黑金质感) */
+.status-bar-item.vim-cmd-stack-item {
 	order: -998 !important; /* 停靠在模式胶囊右侧 */
 	padding: 3px 10px !important;
-	margin: 2px 8px 2px 2px !important;
+	margin: 2px 8px 2px 4px !important;
 	font-family: "JetBrains Mono", "Fira Code", monospace !important;
-	font-weight: 800 !important;
+	font-weight: 900 !important;
 	font-size: 11px !important;
 	letter-spacing: 1px !important;
 	border-radius: 4px !important;
-	background-color: rgba(255, 255, 255, 0.12) !important;
-	color: #e0af68 !important; /* 琥珀亮金色，极其显眼 */
-	border: 1px solid rgba(224, 175, 104, 0.4) !important;
-	box-shadow: 0 1px 3px rgba(0,0,0,0.2) !important;
-	animation: pulse-stack 0.8s ease-in-out infinite alternate;
+	background: linear-gradient(135deg, #ffc837 0%, #ff8008 100%) !important; /* 纯正流光鎏金渐变 */
+	color: #1a1500 !important; /* 黑金深色字 */
+	border: 1px solid rgba(255, 215, 0, 0.8) !important;
+	box-shadow: 0 0 10px rgba(255, 180, 0, 0.4), 0 1px 3px rgba(0,0,0,0.3) !important; /* 鎏金微光晕 */
+	animation: pulse-gold 1s ease-in-out infinite alternate !important;
 }
 
-@keyframes pulse-stack {
-	0% { opacity: 0.85; }
-	100% { opacity: 1; }
+@keyframes pulse-gold {
+	0% {
+		box-shadow: 0 0 6px rgba(255, 180, 0, 0.3), 0 1px 3px rgba(0,0,0,0.3);
+		transform: scale(0.98);
+	}
+	100% {
+		box-shadow: 0 0 14px rgba(255, 200, 0, 0.6), 0 1px 4px rgba(0,0,0,0.4);
+		transform: scale(1);
+	}
 }
