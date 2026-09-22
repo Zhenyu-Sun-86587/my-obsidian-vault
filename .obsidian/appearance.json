@@ -1,3 +1,16 @@
 {
-  "cssTheme": "AbsolutelyGlass"
+  "cssTheme": "AbsolutelyGlass",
+  "monospaceFontFamily": "Maple Mono NF CN",
+  "textFontFamily": "Maple Mono NF CN",
+  "interfaceFontFamily": "Maple Mono NF CN",
+  "baseFontSizeAction": true,
+  "accentColor": "#7aa2f7",
+  "baseFontSize": 17,
+  "theme": "system",
+  "translucency": true,
+  "enabledCssSnippets": [
+    "workspace-integration",
+    "smooth-folding",
+    "hierarchical-bullets"
+  ]
 }
