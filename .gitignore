@@ -1,0 +1,13 @@
+# Obsidian dynamic workspace and session state
+.obsidian/workspace*
+.obsidian/cache/
+.obsidian/graph.json
+
+# Syncthing / Local conflict copies
+*.sync-conflict-*
+
+# System and temporary caches
+.DS_Store
+Thumbs.db
+desktop.ini
+*.tmp
