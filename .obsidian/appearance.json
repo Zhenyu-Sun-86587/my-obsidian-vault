@@ -1,7 +1,6 @@
 {
-  "cssTheme": "Minimal",
-  "theme": "obsidian",
-  "baseFontSize": 16,
-  "monospaceFontFamily": "JetBrains Mono, Fira Code, Consolas, monospace",
-  "textFontFamily": "Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'PingFang SC', 'Microsoft YaHei', sans-serif"
+  "interfaceFontFamily": "Maple Mono CN NF",
+  "cssTheme": "Tokyo Night",
+  "textFontFamily": "Maple Mono CN NF",
+  "monospaceFontFamily": "Maple Mono CN NF"
 }
