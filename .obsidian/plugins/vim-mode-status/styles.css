@@ -2,7 +2,7 @@
 .status-bar-item.vim-mode-statusbar {
 	order: -999 !important; /* 强制停泊在底部状态栏最左侧 */
 	padding: 3px 12px !important;
-	margin: 2px 8px 2px 2px !important;
+	margin: 2px 4px 2px 2px !important;
 	font-family: "JetBrains Mono", "Fira Code", monospace !important;
 	font-weight: 900 !important;
 	font-size: 11px !important;
@@ -41,4 +41,26 @@
 .vim-mode-statusbar.is-command {
 	background-color: #7dcfff !important;
 	color: #15161e !important;
+}
+
+/* LazyVim Showcmd 按键栈指示器 (紧随其后) */
+.status-bar-item.vim-key-stack-statusbar {
+	order: -998 !important; /* 停靠在模式胶囊右侧 */
+	padding: 3px 10px !important;
+	margin: 2px 8px 2px 2px !important;
+	font-family: "JetBrains Mono", "Fira Code", monospace !important;
+	font-weight: 800 !important;
+	font-size: 11px !important;
+	letter-spacing: 1px !important;
+	border-radius: 4px !important;
+	background-color: rgba(255, 255, 255, 0.12) !important;
+	color: #e0af68 !important; /* 琥珀亮金色，极其显眼 */
+	border: 1px solid rgba(224, 175, 104, 0.4) !important;
+	box-shadow: 0 1px 3px rgba(0,0,0,0.2) !important;
+	animation: pulse-stack 0.8s ease-in-out infinite alternate;
+}
+
+@keyframes pulse-stack {
+	0% { opacity: 0.85; }
+	100% { opacity: 1; }
 }
