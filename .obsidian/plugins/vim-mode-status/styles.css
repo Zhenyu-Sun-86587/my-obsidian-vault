@@ -1,0 +1,44 @@
+/* LazyVim / Lualine Style Mode Indicator */
+.status-bar-item.vim-mode-statusbar {
+	order: -999 !important; /* 强制停泊在底部状态栏最左侧 */
+	padding: 3px 12px !important;
+	margin: 2px 8px 2px 2px !important;
+	font-family: "JetBrains Mono", "Fira Code", monospace !important;
+	font-weight: 900 !important;
+	font-size: 11px !important;
+	letter-spacing: 0.5px !important;
+	border-radius: 4px !important;
+	text-transform: uppercase !important;
+	box-shadow: 0 1px 3px rgba(0,0,0,0.3) !important;
+	transition: background-color 0.15s ease, color 0.15s ease !important;
+}
+
+/* NORMAL - 经典 Tokyo Night / LazyVim 冰蓝 */
+.vim-mode-statusbar.is-normal {
+	background-color: #7aa2f7 !important;
+	color: #15161e !important;
+}
+
+/* INSERT - 翠绿 */
+.vim-mode-statusbar.is-insert {
+	background-color: #9ece6a !important;
+	color: #15161e !important;
+}
+
+/* VISUAL - 耀眼暖橙 / 紫金 */
+.vim-mode-statusbar.is-visual {
+	background-color: #bb9af7 !important;
+	color: #15161e !important;
+}
+
+/* REPLACE - 警戒红 */
+.vim-mode-statusbar.is-replace {
+	background-color: #f7768e !important;
+	color: #15161e !important;
+}
+
+/* COMMAND - 青蓝 */
+.vim-mode-statusbar.is-command {
+	background-color: #7dcfff !important;
+	color: #15161e !important;
+}
