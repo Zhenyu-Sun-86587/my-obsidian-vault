@@ -91,3 +91,6 @@ map <Space>mh :surroundHighlight<CR>
 
 exmap surroundCode surround ` `
 map <Space>mc :surroundCode<CR>
+
+exmap toggleVim obcommand editor:toggle-vim-mode
+nmap <Space>tv :toggleVim<CR>
