@@ -269,9 +269,12 @@
       "type": "external"
     },
     "win32IntegratedDefault": {
-      "args": [],
+      "args": [
+        "-i",
+        "-l"
+      ],
       "environment": [],
-      "executable": "c:\\program files\\powershell\\7\\pwsh.exe",
+      "executable": "D:\\Git\\bin\\bash.exe",
       "followTheme": true,
       "name": "",
       "platforms": {
