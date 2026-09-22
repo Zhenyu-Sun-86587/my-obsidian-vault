@@ -1,1 +1,1 @@
-{"translucent-bg:cycle-material":[{"key":"M","modifiers":"Mod Alt"}],"vim-toggle:toggle-vim":[{"key":"V","modifiers":"Mod Alt"}]}
+{\"vim-toggle:toggle-vim\":[{\"modifiers\":[\"Mod\",\"Alt\"],\"key\":\"V\"}],\"translucent-bg:cycle-material\":[{\"modifiers\":[\"Mod\",\"Alt\"],\"key\":\"M\"}]}
