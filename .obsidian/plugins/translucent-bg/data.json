@@ -1,9 +1,5 @@
 {
-  "material": "none",
-  "lightTintColor": "#ffffff",
-  "lightTintOpacity": 0.35,
-  "darkTintColor": "#1a1b26",
-  "darkTintOpacity": 0.45,
-  "themeHandlesOpacity": true,
-  "themeHandlesTint": true
+  "tintColor": "#1a1b26",
+  "material": "acrylic",
+  "tintOpacity": 0.5
 }
