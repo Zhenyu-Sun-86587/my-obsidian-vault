@@ -8,5 +8,6 @@
   "showLineNumber": true,
   "readableLineLength": true,
   "strictLineBreaks": false,
-  "livePreview": true
+  "livePreview": true,
+  "translucency": true
 }

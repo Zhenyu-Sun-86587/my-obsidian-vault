@@ -7,7 +7,7 @@
   "accentColor": "#7aa2f7",
   "baseFontSize": 15,
   "theme": "obsidian",
-  "translucency": false,
+  "translucency": true,
   "enabledCssSnippets": [
     "tokyo-night-glass"
   ]
