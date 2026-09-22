@@ -135,8 +135,8 @@
   "macOSOptionKeyPassthrough": true,
   "rightClickAction": "copyPaste",
   "newInstanceBehavior": "newHorizontalSplit",
-  "noticeTimeout": 5,
-  "openChangelogOnUpdate": true,
+  "noticeTimeout": 0,
+  "openChangelogOnUpdate": false,
   "pinNewInstance": true,
   "preferredRenderer": "webgl",
   "profiles": {
