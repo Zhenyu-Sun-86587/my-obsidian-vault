@@ -1,0 +1,23 @@
+﻿/* 优雅通用的 Markdown 语法平滑淡入展开 (零形变，零跳动) */
+.cm-formatting {
+  opacity: 0 !important;
+  display: inline !important;
+  color: var(--text-faint) !important;
+  transition: opacity 0.16s cubic-bezier(0.16, 1, 0.3, 1), color 0.16s ease !important;
+}
+
+/* 光标进入当前行时，所有格式化标记平滑浮现 */
+.cm-active .cm-formatting,
+.cm-formatting-header,
+.cm-formatting-strong,
+.cm-formatting-em,
+.cm-formatting-highlight,
+.cm-formatting-strikethrough {
+  opacity: 0.85 !important;
+}
+
+.cm-formatting-strong,
+.cm-formatting-header {
+  color: var(--interactive-accent, #7aa2f7) !important;
+  font-weight: 600 !important;
+}

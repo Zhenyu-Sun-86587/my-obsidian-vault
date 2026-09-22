@@ -88,3 +88,4 @@ if __name__ == "__main__":
 # AAA
 ---
 `aaaaaaaaa`
+![](assets/Snipaste_2026-09-22_23-13-57.png)
