@@ -1,0 +1,22 @@
+{
+  "automationsFolder": "",
+  "verboseProxyLogs": false,
+  "autoRestartOnRuntimeSwitch": false,
+  "autoStart": false,
+  "nodeExecutable": "auto",
+  "selectedRuntimeId": "claude",
+  "runtimes": [
+    {
+      "args": "",
+      "id": "claude",
+      "command": "C:\\Users\\SZY\\.local\\bin\\claude.exe",
+      "name": "Claude"
+    },
+    {
+      "args": "",
+      "id": "powershell",
+      "command": "C:\\Program Files\\PowerShell\\7\\pwsh.exe",
+      "name": "PowerShell"
+    }
+  ]
+}

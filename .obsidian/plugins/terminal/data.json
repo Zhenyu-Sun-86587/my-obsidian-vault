@@ -8,7 +8,7 @@
   "hideStatusBar": "focused",
   "showTerminalTabPrefix": false,
   "interceptKeysWhenFocused": true,
-  "interceptLogging": true,
+  "interceptLogging": false,
   "keymappings": [
     {
       "action": "sendEscapeSequence",
@@ -271,7 +271,7 @@
     "win32IntegratedDefault": {
       "args": [],
       "environment": [],
-      "executable": "C:\\Windows\\System32\\cmd.exe",
+      "executable": "c:\\program files\\powershell\\7\\pwsh.exe",
       "followTheme": true,
       "name": "",
       "platforms": {
@@ -292,7 +292,7 @@
       "useWin32Conhost": true
     }
   },
-  "defaultProfile": null,
+  "defaultProfile": "win32IntegratedDefault",
   "terminalOptions": {
     "documentOverride": null
   }
