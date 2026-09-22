@@ -1,0 +1,47 @@
+/* ==========================================================================
+   Level-based Bullet List Indicators & Indentation Guides
+   层级无序列表差异化标注（圆点 ➡️ 空心圆 ➡️ 实心方块 ➡️ 菱形）+ 柔和缩进线
+   ========================================================================== */
+
+/* 第一级：实心圆点 (Accent 亮色) */
+.markdown-rendered ul > li,
+.cm-line:not(.HyperMD-task-line) .cm-formatting-list-ul {
+  list-style-type: disc !important;
+}
+
+/* 第二级：空心小圆圈 (Circle) */
+.markdown-rendered ul > li > ul > li,
+.cm-line:not(.HyperMD-task-line)[class*="cm-indent-2"] .cm-formatting-list-ul,
+.cm-line:not(.HyperMD-task-line)[class*="cm-indent-1"] .cm-formatting-list-ul {
+  list-style-type: circle !important;
+}
+
+/* 第三级：实心小方块 (Square) */
+.markdown-rendered ul > li > ul > li > ul > li,
+.cm-line:not(.HyperMD-task-line)[class*="cm-indent-4"] .cm-formatting-list-ul,
+.cm-line:not(.HyperMD-task-line)[class*="cm-indent-3"] .cm-formatting-list-ul {
+  list-style-type: square !important;
+}
+
+/* 实时预览 (Live Preview) 动态符号与色彩分级映射 */
+.cm-line:not(.HyperMD-task-line) .cm-formatting-list-ul {
+  display: inline-block;
+  font-weight: bold;
+  transition: color 0.2s ease, transform 0.2s ease;
+}
+
+/* 有序列表多层级：1. ➡️ a. ➡️ i. (经典罗马/字母嵌套规则) */
+.markdown-rendered ol {
+  list-style-type: decimal !important;
+}
+.markdown-rendered ol > li > ol {
+  list-style-type: lower-alpha !important;
+}
+.markdown-rendered ol > li > ol > li > ol {
+  list-style-type: lower-roman !important;
+}
+
+/* 柔和的层级缩进参考线 (Indentation Guides) */
+.cm-indent {
+  border-right: 1px solid rgba(122, 162, 247, 0.15) !important;
+}
