@@ -1,10 +1,29 @@
-.relative-line-numbers-mono {
-  font-family: monospace;
-  white-space: pre;
+/* Scope these rules to editors where the extension is enabled. */
+.markdown-source-view .relative-line-numbers-enabled .cm-gutter.cm-lineNumbers,
+.markdown-source-view .relative-line-numbers-enabled .cm-gutter.cm-relativeLineNumbers-absolute {
+  font-family: var(--font-monospace, monospace);
+  font-variant-numeric: tabular-nums;
+  min-width: 3.5ch;
+  opacity: 1;
 }
 
-.cm-lineNumbers {
-  font-family: monospace;
+.markdown-source-view .relative-line-numbers-enabled .cm-lineNumbers .cm-gutterElement,
+.markdown-source-view .relative-line-numbers-enabled .cm-relativeLineNumbers-absolute .cm-gutterElement {
+  color: var(--text-normal);
+  /* Override the existing hierarchical-bullets snippet's fixed 14px size. */
+  font-size: 0.9em !important;
+  font-weight: 600;
+  text-align: right;
   white-space: pre;
-  min-width: 25px; /* prevent relative line numbers from shifting on files with ~10-20 lines */
+  padding-inline: 0.5ch;
+  opacity: 1;
+  transition: none;
+  animation: none;
+}
+
+.markdown-source-view .relative-line-numbers-enabled .cm-relativeLineNumbers-absolute .relative-line-numbers-mono {
+  color: var(--interactive-accent);
+  font-weight: 700;
+  background-color: var(--background-modifier-hover);
+  border-radius: 3px;
 }

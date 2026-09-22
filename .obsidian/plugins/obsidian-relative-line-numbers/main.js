@@ -55,14 +55,15 @@ var import_obsidian = __toModule(require("obsidian"));
 
 // extension.ts
 var import_view = __toModule(require("@codemirror/view"));
-var import_state = __toModule(require("@codemirror/state"));
 var import_language = __toModule(require("@codemirror/language"));
-var relativeLineNumberGutter = new import_state.Compartment();
 var Marker = class extends import_view.GutterMarker {
   constructor(text) {
     super();
     this.text = text;
     this.elementClass = "relative-line-numbers-mono";
+  }
+  eq(other) {
+    return this.text === other.text;
   }
   toDOM() {
     return document.createTextNode(this.text);
@@ -72,11 +73,20 @@ function linesCharLength(state) {
   return state.doc.lines.toString().length;
 }
 var absoluteLineNumberGutter = (0, import_view.gutter)({
+  class: "cm-relativeLineNumbers-absolute",
+  renderEmptyElements: true,
+  // Ask CM6 to reconcile markers in the existing gutters. This also refreshes
+  // formatNumber in the standard line-number gutter, without a second transaction.
+  lineMarkerChange: (update) => update.docChanged ||
+    update.startState.doc.lineAt(update.startState.selection.main.head).number !==
+      update.state.doc.lineAt(update.state.selection.main.head).number ||
+    (0, import_language.foldedRanges)(update.startState) !==
+      (0, import_language.foldedRanges)(update.state),
   lineMarker: (view, line) => {
     const lineNo = view.state.doc.lineAt(line.from).number;
     const charLength = linesCharLength(view.state);
     const absoluteLineNo = new Marker(lineNo.toString().padStart(charLength, " "));
-    const cursorLine = view.state.doc.lineAt(view.state.selection.asSingle().ranges[0].to).number;
+    const cursorLine = view.state.doc.lineAt(view.state.selection.main.head).number;
     if (lineNo === cursorLine) {
       return absoluteLineNo;
     }
@@ -85,6 +95,10 @@ var absoluteLineNumberGutter = (0, import_view.gutter)({
   initialSpacer: (view) => {
     const spacer = new Marker("0".repeat(linesCharLength(view.state)));
     return spacer;
+  },
+  updateSpacer: (spacer, update) => {
+    const text = "0".repeat(linesCharLength(update.state));
+    return spacer.text === text ? spacer : new Marker(text);
   }
 });
 function relativeLineNumbers(lineNo, state) {
@@ -93,9 +107,9 @@ function relativeLineNumbers(lineNo, state) {
   if (lineNo > state.doc.lines) {
     return blank;
   }
-  const cursorLine = state.doc.lineAt(state.selection.asSingle().ranges[0].to).number;
-  const start = Math.min(state.doc.line(lineNo).from, state.selection.asSingle().ranges[0].to);
-  const stop = Math.max(state.doc.line(lineNo).from, state.selection.asSingle().ranges[0].to);
+  const cursorLine = state.doc.lineAt(state.selection.main.head).number;
+  const start = Math.min(state.doc.line(lineNo).from, state.selection.main.head);
+  const stop = Math.max(state.doc.line(lineNo).from, state.selection.main.head);
   const folds = (0, import_language.foldedRanges)(state);
   let foldedCount = 0;
   folds.between(start, stop, (from, to) => {
@@ -109,16 +123,10 @@ function relativeLineNumbers(lineNo, state) {
     return (Math.abs(cursorLine - lineNo) - foldedCount).toString().padStart(charLength, " ");
   }
 }
-var showLineNumbers = relativeLineNumberGutter.of((0, import_view.lineNumbers)({ formatNumber: relativeLineNumbers }));
-var lineNumbersUpdateListener = import_view.EditorView.updateListener.of((viewUpdate) => {
-  if (viewUpdate.selectionSet) {
-    viewUpdate.view.dispatch({
-      effects: relativeLineNumberGutter.reconfigure((0, import_view.lineNumbers)({ formatNumber: relativeLineNumbers }))
-    });
-  }
-});
+var showLineNumbers = (0, import_view.lineNumbers)({ formatNumber: relativeLineNumbers });
 function lineNumbersRelative() {
-  return [absoluteLineNumberGutter, showLineNumbers, lineNumbersUpdateListener];
+  return [absoluteLineNumberGutter, showLineNumbers,
+    import_view.EditorView.editorAttributes.of({ class: "relative-line-numbers-enabled" })];
 }
 
 // main.ts
