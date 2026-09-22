@@ -9,5 +9,9 @@
   "obsidian-style-settings",
   "vim-toggle",
   "obsidian-relative-line-numbers",
-  "vim-mode-status"
+  "vim-mode-status",
+  "recent-files-obsidian",
+  "obsidian-linter",
+  "obsidian-image-toolkit",
+  "obsidian-paste-image-rename"
 ]

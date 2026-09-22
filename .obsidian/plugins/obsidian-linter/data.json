@@ -1,0 +1,9 @@
+{
+  "lintOnSave": true,
+  "display-message-on-lint": true,
+  "paragraph-blank-lines": true,
+  "proper-ellipsis": true,
+  "space-between-chinese-and-alphanumeric": true,
+  "trailing-spaces": true,
+  "empty-line-around-yaml": true
+}

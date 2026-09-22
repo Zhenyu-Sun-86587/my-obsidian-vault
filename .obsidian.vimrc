@@ -15,15 +15,19 @@ unmap <Space>
 
 " --- 2. LazyVim Core Leader Key Mappings ---
 
-" <leader>ff : Find file / Switcher (or Omnisearch)
+" <leader>ff : Find file / Switcher
 exmap quickOpen obcommand switcher:open
 nmap <Space>ff :quickOpen<CR>
+
+" <leader>fr : Recent files (LazyVim: Recent Files)
+exmap recentFiles obcommand recent-files-obsidian:open-recent-modal
+nmap <Space>fr :recentFiles<CR>
 
 " <leader>/ : Global Search
 exmap globalSearch obcommand global-search:open
 nmap <Space>/ :globalSearch<CR>
 
-" <leader>s : Omnisearch fuzzy search modal
+" <leader>ss : Omnisearch fuzzy search modal
 exmap omniSearch obcommand omnisearch:show-modal
 nmap <Space>ss :omniSearch<CR>
 
@@ -31,9 +35,13 @@ nmap <Space>ss :omniSearch<CR>
 exmap toggleFileExplorer obcommand app:toggle-left-sidebar
 nmap <Space>e :toggleFileExplorer<CR>
 
-" <leader>w : Save current file
+" <leader>w : Save current file (automatically triggers Linter format on save!)
 exmap saveFile obcommand editor:save-file
 nmap <Space>w :saveFile<CR>
+
+" <leader>cf : Format current file with Linter manually
+exmap lintFile obcommand obsidian-linter:lint-file
+nmap <Space>cf :lintFile<CR>
 
 " <leader>| and <leader>- : Window Splits (LazyVim style)
 exmap splitVertical obcommand workspace:split-vertical
@@ -79,18 +87,38 @@ nmap <Space>zr :unfoldAll<CR>
 exmap toggleCheckbox obcommand editor:toggle-checklist-status
 nmap <Space>x :toggleCheckbox<CR>
 
-" Surroundings (Markdown syntax helpers)
+" --- 4. Surroundings (Vim-Surround in Visual Mode) ---
+" 选中文本后按 S 加对应字符包裹
 exmap surroundWiki surround [[ ]]
-map [[ :surroundWiki<CR>
+vmap S[ :surroundWiki<CR>
 
 exmap surroundBold surround ** **
-map <Space>mb :surroundBold<CR>
+vmap S* :surroundBold<CR>
+vmap Sb :surroundBold<CR>
 
 exmap surroundHighlight surround == ==
-map <Space>mh :surroundHighlight<CR>
+vmap S= :surroundHighlight<CR>
+vmap Sh :surroundHighlight<CR>
 
 exmap surroundCode surround ` `
-map <Space>mc :surroundCode<CR>
+vmap S` :surroundCode<CR>
+vmap Sc :surroundCode<CR>
 
-exmap toggleVim obcommand editor:toggle-vim-mode
+exmap surroundQuote surround " "
+vmap S" :surroundQuote<CR>
+
+exmap surroundSingleQuote surround ' '
+vmap S' :surroundSingleQuote<CR>
+
+exmap surroundParentheses surround ( )
+vmap S( :surroundParentheses<CR>
+vmap S) :surroundParentheses<CR>
+
+" Normal Mode Leader 包裹快捷键
+nmap <Space>mb :surroundBold<CR>
+nmap <Space>mh :surroundHighlight<CR>
+nmap <Space>mc :surroundCode<CR>
+
+" Toggle Vim
+exmap toggleVim obcommand vim-toggle:toggle-vim
 nmap <Space>tv :toggleVim<CR>
