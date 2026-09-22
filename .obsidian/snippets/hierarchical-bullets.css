@@ -1,150 +1,44 @@
 /* ==========================================================================
-   VS Code 规范：有序列表层级自动蜕变 (1. -> a. -> i.)
-   兼容 阅读视图 (.markdown-rendered) 与 实时预览 (.cm-line / Live Preview)
+   VS Code 风格多级有序与无序列表 (安全无损方案)
    ========================================================================== */
 
-/* --- 1. 阅读模式 (Reading Mode / Standard Rendered HTML) --- */
+/* 1. 有序列表 (1. -> a. -> i.) */
 .markdown-rendered ol {
   list-style-type: decimal !important;
 }
-
-.markdown-rendered ol ol,
-.markdown-rendered ul ol {
-  list-style-type: lower-alpha !important; /* 第二级: a. b. c. */
+.markdown-rendered ol ol {
+  list-style-type: lower-alpha !important;
+}
+.markdown-rendered ol ol ol {
+  list-style-type: lower-roman !important;
 }
 
-.markdown-rendered ol ol ol,
-.markdown-rendered ul ol ol,
-.markdown-rendered ol ul ol {
-  list-style-type: lower-roman !important; /* 第三级: i. ii. iii. */
-}
-
-.markdown-rendered ol ol ol ol {
-  list-style-type: decimal !important;    /* 更深层级循环回数字 */
-}
-
-/* --- 2. 实时预览模式 (Live Preview / CodeMirror 6) --- */
-/* 第一级: 保持原样数字 (1. 2. 3.) */
 .cm-line.HyperMD-list-line-1 .cm-formatting-list-ol {
-  color: var(--text-normal) !important;
-}
-
-/* 第二级 (缩进 1 次): 模拟 VS Code 显示为 lower-alpha (a. b. c.) */
-.cm-line.HyperMD-list-line-2 .cm-formatting-list-ol {
-  font-size: 0 !important; /* 隐藏原生的数字 */
-  display: inline-block !important;
-}
-
-.cm-line.HyperMD-list-line-2 .cm-formatting-list-ol::after {
-  content: "a." !important;
-  font-size: var(--font-text-size, 16px) !important;
   color: var(--interactive-accent, #7aa2f7) !important;
-  font-family: inherit !important;
-  margin-right: 4px !important;
-  font-weight: 500 !important;
 }
 
-/* 第三级 (缩进 2 次): 模拟 VS Code 显示为 lower-roman (i. ii. iii.) */
-.cm-line.HyperMD-list-line-3 .cm-formatting-list-ol {
-  font-size: 0 !important;
-  display: inline-block !important;
-}
-
-.cm-line.HyperMD-list-line-3 .cm-formatting-list-ol::after {
-  content: "i." !important;
-  font-size: var(--font-text-size, 16px) !important;
-  color: #bb9af7 !important;
-  font-family: inherit !important;
-  margin-right: 4px !important;
-  font-weight: 500 !important;
-}
-
-/* --- 3. 无序列表层级符号递进 (Disc -> Circle -> Square) --- */
-.markdown-rendered ul {
-  list-style-type: disc !important;
-}
-
-.markdown-rendered ul ul,
-.markdown-rendered ol ul {
-  list-style-type: circle !important;
-}
-
-.markdown-rendered ul ul ul,
-.markdown-rendered ol ul ul {
-  list-style-type: square !important;
-}
-
-/* ==========================================================================
-   无序列表层级符号蜕变 (Disc -> Circle -> Square -> Diamond)
-   全覆盖：阅读视图 (.markdown-rendered) 与 实时预览 (.cm-formatting-list-ul)
-   ========================================================================== */
-
-/* --- 1. 实时预览 (Live Preview / CodeMirror 6) --- */
-
-/* 第一级 (Level 1): 实心大圆点 Disc */
+/* 2. 无序列表 (安全符号颜色与轮廓层级，绝不隐藏文字或符号) */
 .cm-line.HyperMD-list-line-1 .cm-formatting-list-ul {
-  font-size: 0 !important;
-  display: inline-flex !important;
-  align-items: center !important;
-  vertical-align: middle !important;
-}
-.cm-line.HyperMD-list-line-1 .cm-formatting-list-ul::after {
-  content: "•" !important;
-  font-size: 1.25em !important;
   color: var(--interactive-accent, #7aa2f7) !important;
-  line-height: 1 !important;
-  margin-right: 2px !important;
+  font-weight: 900 !important;
 }
 
-/* 第二级 (Level 2 / 缩进 1 次): 空心小圆圈 Circle */
 .cm-line.HyperMD-list-line-2 .cm-formatting-list-ul {
-  font-size: 0 !important;
-  display: inline-flex !important;
-  align-items: center !important;
-  vertical-align: middle !important;
-}
-.cm-line.HyperMD-list-line-2 .cm-formatting-list-ul::after {
-  content: "◦" !important; /* Unicode 空心圆 */
-  font-size: 1.35em !important;
-  font-weight: bold !important;
-  color: #bb9af7 !important; /* 柔紫过渡色 */
-  line-height: 1 !important;
-  margin-right: 2px !important;
+  color: #bb9af7 !important; /* 紫色次级 */
+  opacity: 0.85 !important;
 }
 
-/* 第三级 (Level 3 / 缩进 2 次): 精致实心小方块 Square */
 .cm-line.HyperMD-list-line-3 .cm-formatting-list-ul {
-  font-size: 0 !important;
-  display: inline-flex !important;
-  align-items: center !important;
-  vertical-align: middle !important;
-}
-.cm-line.HyperMD-list-line-3 .cm-formatting-list-ul::after {
-  content: "▪" !important; /* Unicode 小黑方块 */
-  font-size: 1.1em !important;
-  color: #7dcfff !important; /* 青空蓝 */
-  line-height: 1 !important;
-  margin-right: 2px !important;
+  color: #7dcfff !important; /* 青蓝三级 */
+  opacity: 0.75 !important;
 }
 
-/* 第四级及以上 (Level 4+): 清秀小菱形 Diamond */
 .cm-line.HyperMD-list-line-4 .cm-formatting-list-ul,
 .cm-line.HyperMD-list-line-5 .cm-formatting-list-ul {
-  font-size: 0 !important;
-  display: inline-flex !important;
-  align-items: center !important;
-  vertical-align: middle !important;
-}
-.cm-line.HyperMD-list-line-4 .cm-formatting-list-ul::after,
-.cm-line.HyperMD-list-line-5 .cm-formatting-list-ul::after {
-  content: "◈" !important;
-  font-size: 1.1em !important;
-  color: #e0af68 !important; /* 琥珀金 */
-  line-height: 1 !important;
-  margin-right: 2px !important;
+  color: #e0af68 !important; /* 琥珀金四级 */
 }
 
-/* --- 2. 阅读视图 (Reading View / 导出模式) --- */
+/* 阅读视图原生层级 */
 .markdown-rendered ul {
   list-style-type: disc !important;
 }
