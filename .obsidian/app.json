@@ -2,7 +2,7 @@
   "useMarkdownLinks": true,
   "newLinkFormat": "relative",
   "attachmentFolderPath": "./assets",
-  "vimMode": false,
+  "vimMode": true,
   "foldHeading": true,
   "foldIndent": true,
   "showLineNumber": true,
