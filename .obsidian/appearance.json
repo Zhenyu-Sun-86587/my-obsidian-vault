@@ -1,6 +1,9 @@
 {
-  "interfaceFontFamily": "Maple Mono CN NF",
-  "cssTheme": "Tokyo Night",
-  "textFontFamily": "Maple Mono CN NF",
-  "monospaceFontFamily": "Maple Mono CN NF"
+  "cssTheme": "AnuPpuccin",
+  "monospaceFontFamily": "Maple Mono NF CN",
+  "textFontFamily": "Maple Mono NF CN",
+  "interfaceFontFamily": "Maple Mono NF CN",
+  "baseFontSizeAction": true,
+  "accentColor": "#5cf5ba",
+  "baseFontSize": 15
 }
