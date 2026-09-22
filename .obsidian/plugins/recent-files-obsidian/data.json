@@ -5,32 +5,16 @@
       "path": "test.md"
     },
     {
-      "basename": "Snipaste_2026-09-22_23-13-57",
-      "path": "assets/Snipaste_2026-09-22_23-13-57.png"
-    },
-    {
-      "basename": "未命名",
-      "path": "未命名.canvas"
-    },
-    {
-      "basename": "未命名",
-      "path": "未命名.base"
-    },
-    {
-      "basename": "未命名 1",
-      "path": "未命名 1.base"
-    },
-    {
-      "basename": "未命名 2",
-      "path": "未命名 2.base"
+      "basename": "README",
+      "path": "README.md"
     },
     {
       "basename": "Dashboard",
       "path": "Dashboard.md"
     },
     {
-      "basename": "README",
-      "path": "README.md"
+      "basename": "Snipaste_2026-09-22_23-13-57",
+      "path": "assets/Snipaste_2026-09-22_23-13-57.png"
     }
   ],
   "omittedPaths": [],
