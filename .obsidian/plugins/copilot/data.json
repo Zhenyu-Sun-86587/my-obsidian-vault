@@ -370,6 +370,15 @@
     "welcomeDismissed": false,
     "skills": {
       "folder": "copilot/skills"
+    },
+    "deviceProfiles": {
+      "6dd00c2a-c0d4-46cf-948a-4fa52cdd714b": {
+        "codex": {
+          "binaryPath": "C:\\Users\\SZY\\AppData\\Local\\nvm\\v25.2.0\\node_modules\\@agentclientprotocol\\codex-acp\\dist\\index.js",
+          "binaryVersion": "1.12.0",
+          "binarySource": "custom"
+        }
+      }
     }
   },
   "providers": {
@@ -383,6 +392,31 @@
       "requiresApiKey": false,
       "providerId": "aab28bcb-3402-42ef-82e5-b4af224f99b5",
       "addedAt": 1790094211163,
+      "apiKeyKeychainId": null
+    },
+    "6cebf848-b407-4dc1-bb20-9122fca3fc4b": {
+      "providerType": "openai-compatible",
+      "displayName": "adcdxc",
+      "baseUrl": "https://api2.adcdxc.me/v1",
+      "enableCors": false,
+      "requiresApiKey": false,
+      "origin": {
+        "kind": "byok"
+      },
+      "providerId": "6cebf848-b407-4dc1-bb20-9122fca3fc4b",
+      "addedAt": 1790099955031,
+      "apiKeyKeychainId": "copilot-vaf0f5bd3-provider-6cebf848-b407-4dc1-bb20-9122fca3fc4b"
+    },
+    "f982f9a7-eed5-4d56-8535-dd751997de15": {
+      "providerType": "openai-compatible",
+      "displayName": "Codex",
+      "origin": {
+        "kind": "agent",
+        "agentType": "codex"
+      },
+      "requiresApiKey": false,
+      "providerId": "f982f9a7-eed5-4d56-8535-dd751997de15",
+      "addedAt": 1790099973217,
       "apiKeyKeychainId": null
     }
   },
@@ -446,6 +480,175 @@
       },
       "configuredModelId": "070c17e8-b7cd-4b1e-a5ed-5bcd1238850b",
       "configuredAt": 1790094218029
+    },
+    {
+      "configuredModelId": "4c46cb40-0dae-4d3e-969a-a2259366bd3e",
+      "providerId": "6cebf848-b407-4dc1-bb20-9122fca3fc4b",
+      "info": {
+        "id": "gemini-3.8-flash-high",
+        "displayName": "gemini-3.8-flash-high"
+      },
+      "configuredAt": 1790099955034
+    },
+    {
+      "providerId": "f982f9a7-eed5-4d56-8535-dd751997de15",
+      "info": {
+        "id": "gpt-6-astra",
+        "displayName": "6 Astra",
+        "modalities": {
+          "input": [
+            "text",
+            "image",
+            "pdf"
+          ],
+          "output": [
+            "text"
+          ]
+        },
+        "limits": {
+          "context": 1050000,
+          "output": 128000,
+          "input": 922000
+        },
+        "reasoning": true,
+        "toolCall": true,
+        "releaseDate": "2026-09-04",
+        "cost": {
+          "input": 10,
+          "output": 50
+        },
+        "description": "Our most capable model for complex, demanding work."
+      },
+      "configuredModelId": "456cd858-7815-4383-9395-2488afdae0bf",
+      "configuredAt": 1790099973234
+    },
+    {
+      "providerId": "f982f9a7-eed5-4d56-8535-dd751997de15",
+      "info": {
+        "id": "gpt-5.6-sol",
+        "displayName": "5.6 Sol",
+        "modalities": {
+          "input": [
+            "text",
+            "image",
+            "pdf"
+          ],
+          "output": [
+            "text"
+          ]
+        },
+        "limits": {
+          "context": 1050000,
+          "output": 128000,
+          "input": 922000
+        },
+        "reasoning": true,
+        "toolCall": true,
+        "releaseDate": "2026-07-09",
+        "cost": {
+          "input": 5,
+          "output": 30
+        },
+        "description": "Reliable agentic workhorse for everyday tasks."
+      },
+      "configuredModelId": "1df39881-5a8d-44e0-aa49-149f667155f0",
+      "configuredAt": 1790099973235
+    },
+    {
+      "providerId": "f982f9a7-eed5-4d56-8535-dd751997de15",
+      "info": {
+        "id": "gpt-5.6-terra",
+        "displayName": "5.6 Terra",
+        "modalities": {
+          "input": [
+            "text",
+            "image",
+            "pdf"
+          ],
+          "output": [
+            "text"
+          ]
+        },
+        "limits": {
+          "context": 1050000,
+          "output": 128000,
+          "input": 922000
+        },
+        "reasoning": true,
+        "toolCall": true,
+        "releaseDate": "2026-07-09",
+        "cost": {
+          "input": 2,
+          "output": 12
+        },
+        "description": "Balanced agentic coding model for everyday work."
+      },
+      "configuredModelId": "22caf840-7d10-427c-93e0-1ff5c336ba65",
+      "configuredAt": 1790099973235
+    },
+    {
+      "providerId": "f982f9a7-eed5-4d56-8535-dd751997de15",
+      "info": {
+        "id": "gpt-5.6-luna",
+        "displayName": "5.6 Luna",
+        "modalities": {
+          "input": [
+            "text",
+            "image",
+            "pdf"
+          ],
+          "output": [
+            "text"
+          ]
+        },
+        "limits": {
+          "context": 1050000,
+          "output": 128000,
+          "input": 922000
+        },
+        "reasoning": true,
+        "toolCall": true,
+        "releaseDate": "2026-07-09",
+        "cost": {
+          "input": 0.2,
+          "output": 1.2
+        },
+        "description": "Fast and affordable agentic coding model."
+      },
+      "configuredModelId": "967ed4fd-c727-4c4c-8912-dd65b2f5f199",
+      "configuredAt": 1790099973236
+    },
+    {
+      "providerId": "f982f9a7-eed5-4d56-8535-dd751997de15",
+      "info": {
+        "id": "gpt-5.5",
+        "displayName": "5.5",
+        "modalities": {
+          "input": [
+            "text",
+            "image",
+            "pdf"
+          ],
+          "output": [
+            "text"
+          ]
+        },
+        "limits": {
+          "context": 1050000,
+          "output": 128000,
+          "input": 922000
+        },
+        "reasoning": true,
+        "toolCall": true,
+        "releaseDate": "2026-04-23",
+        "cost": {
+          "input": 5,
+          "output": 30
+        },
+        "description": "Proven previous-generation model for coding and general work."
+      },
+      "configuredModelId": "c94cda73-7f8e-43b7-ab24-665e4a5e99f9",
+      "configuredAt": 1790099973236
     }
   ],
   "backends": {
@@ -457,6 +660,25 @@
         "273ed626-bd77-4060-9d9e-13e136f8365b",
         "b1b55060-8e45-4b24-a98c-8e14369c8fee",
         "070c17e8-b7cd-4b1e-a5ed-5bcd1238850b"
+      ]
+    },
+    "chat": {
+      "enabledModels": [
+        "4c46cb40-0dae-4d3e-969a-a2259366bd3e"
+      ]
+    },
+    "opencode": {
+      "enabledModels": [
+        "4c46cb40-0dae-4d3e-969a-a2259366bd3e"
+      ]
+    },
+    "codex": {
+      "enabledModels": [
+        "456cd858-7815-4383-9395-2488afdae0bf",
+        "1df39881-5a8d-44e0-aa49-149f667155f0",
+        "22caf840-7d10-427c-93e0-1ff5c336ba65",
+        "967ed4fd-c727-4c4c-8912-dd65b2f5f199",
+        "c94cda73-7f8e-43b7-ab24-665e4a5e99f9"
       ]
     }
   },

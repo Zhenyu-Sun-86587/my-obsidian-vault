@@ -1,4 +1,4 @@
-/* ==========================================================================
+﻿/* ==========================================================================
    Obsidian 渲染后圆点 (.list-bullet::after) 真实层级蜕变
    ========================================================================== */
 
@@ -64,4 +64,18 @@
   border: 1.8px solid #e0af68 !important;
   border-radius: 0px !important;
   box-shadow: 0 0 4px rgba(224, 175, 104, 0.4) !important;
+}
+
+/* ==== 修复行号放大与防抖动高亮 ==== */
+.cm-lineNumbers .cm-gutterElement {
+  font-size: 13.5px !important;
+  font-family: var(--font-monospace) !important;
+  min-width: 3.2ch !important;
+  text-align: right !important;
+  font-variant-numeric: tabular-nums !important;
+  padding-right: 8px !important;
+}
+
+.cm-lineNumbers .cm-gutterElement[style*="height"] {
+  font-weight: 500;
 }

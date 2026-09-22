@@ -1,16 +1,16 @@
 {
-  "accentColor": "#7aa2f7",
-  "theme": "system",
+  "cssTheme": "Primary",
+  "monospaceFontFamily": "Maple Mono NF CN",
+  "textFontFamily": "Maple Mono NF CN",
+  "interfaceFontFamily": "Maple Mono NF CN",
   "baseFontSizeAction": true,
+  "accentColor": "#7aa2f7",
+  "baseFontSize": 15,
+  "theme": "moonstone",
+  "translucency": true,
   "enabledCssSnippets": [
     "workspace-integration",
     "smooth-folding",
     "hierarchical-bullets"
-  ],
-  "monospaceFontFamily": "Maple Mono NF CN",
-  "interfaceFontFamily": "Maple Mono NF CN",
-  "baseFontSize": 17,
-  "translucency": true,
-  "cssTheme": "AbsolutelyGlass",
-  "textFontFamily": "Maple Mono NF CN"
+  ]
 }

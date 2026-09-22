@@ -508,12 +508,12 @@
       "tokenExpiresAt": 0,
       "userInfo": null
     },
-    "enableCustomModel": false,
+    "enableCustomModel": true,
     "customModel": {
       "apiFormat": "openai-compatible",
-      "baseUrl": "",
+      "baseUrl": "https://api2.adcdxc.me",
       "apiKey": "",
-      "model": "",
+      "model": "gemini-3.8-flash-high",
       "temperature": 0.2
     },
     "frontmatterPrompt": {
