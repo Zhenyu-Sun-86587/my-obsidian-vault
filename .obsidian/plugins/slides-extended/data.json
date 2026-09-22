@@ -1,0 +1,7 @@
+{
+  "theme": "black",
+  "transition": "slide",
+  "assetsDir": "assets",
+  "highlightTheme": "monokai",
+  "slideNumber": true
+}
