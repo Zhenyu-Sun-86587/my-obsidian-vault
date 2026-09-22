@@ -1,50 +1,57 @@
 /* ==========================================================================
-   VS Code 风格多级有序与无序列表 (安全无损方案)
+   Obsidian 渲染后圆点 (.list-bullet::after) 真实层级蜕变
    ========================================================================== */
 
-/* 1. 有序列表 (1. -> a. -> i.) */
-.markdown-rendered ol {
-  list-style-type: decimal !important;
-}
-.markdown-rendered ol ol {
-  list-style-type: lower-alpha !important;
-}
-.markdown-rendered ol ol ol {
-  list-style-type: lower-roman !important;
-}
-
-.cm-line.HyperMD-list-line-1 .cm-formatting-list-ol {
+/* 1. 阅读视图 (.markdown-rendered) */
+.markdown-rendered ul > li > .list-bullet::after,
+.markdown-rendered ul > li::marker {
   color: var(--interactive-accent, #7aa2f7) !important;
 }
 
-/* 2. 无序列表 (安全符号颜色与轮廓层级，绝不隐藏文字或符号) */
-.cm-line.HyperMD-list-line-1 .cm-formatting-list-ul {
-  color: var(--interactive-accent, #7aa2f7) !important;
-  font-weight: 900 !important;
+.markdown-rendered ul > li > ul > li > .list-bullet::after,
+.markdown-rendered ul > li > ul > li::marker {
+  color: #bb9af7 !important;
+  background-color: transparent !important;
+  border: 1.5px solid #bb9af7 !important;
+  border-radius: 50% !important;
 }
 
-.cm-line.HyperMD-list-line-2 .cm-formatting-list-ul {
-  color: #bb9af7 !important; /* 紫色次级 */
-  opacity: 0.85 !important;
+.markdown-rendered ul > li > ul > li > ul > li > .list-bullet::after,
+.markdown-rendered ul > li > ul > li > ul > li::marker {
+  color: #7dcfff !important;
+  background-color: #7dcfff !important;
+  border-radius: 0 !important; /* 方块 */
 }
 
-.cm-line.HyperMD-list-line-3 .cm-formatting-list-ul {
-  color: #7dcfff !important; /* 青蓝三级 */
-  opacity: 0.75 !important;
+/* 2. 实时预览编辑视图 (Live Preview / CodeMirror 6) */
+/* 第一级：实心圆点，主题蓝 */
+.cm-line.HyperMD-list-line-1 .list-bullet::after {
+  background-color: var(--interactive-accent, #7aa2f7) !important;
+  border-radius: 50% !important;
+  box-shadow: 0 0 4px rgba(122, 162, 247, 0.4) !important;
 }
 
-.cm-line.HyperMD-list-line-4 .cm-formatting-list-ul,
-.cm-line.HyperMD-list-line-5 .cm-formatting-list-ul {
-  color: #e0af68 !important; /* 琥珀金四级 */
+/* 第二级 (缩进 1 次)：空心圆圈，极客紫 */
+.cm-line.HyperMD-list-line-2 .list-bullet::after {
+  background-color: transparent !important;
+  border: 1.8px solid #bb9af7 !important;
+  border-radius: 50% !important;
+  box-shadow: 0 0 4px rgba(187, 154, 247, 0.4) !important;
 }
 
-/* 阅读视图原生层级 */
-.markdown-rendered ul {
-  list-style-type: disc !important;
+/* 第三级 (缩进 2 次)：实心小方块，青空蓝 */
+.cm-line.HyperMD-list-line-3 .list-bullet::after {
+  background-color: #7dcfff !important;
+  border: none !important;
+  border-radius: 0px !important; /* 彻底变成方形 */
+  box-shadow: 0 0 4px rgba(125, 207, 255, 0.4) !important;
 }
-.markdown-rendered ul ul {
-  list-style-type: circle !important;
-}
-.markdown-rendered ul ul ul {
-  list-style-type: square !important;
+
+/* 第四级 (缩进 3 次)：空心小方块，琥珀金 */
+.cm-line.HyperMD-list-line-4 .list-bullet::after,
+.cm-line.HyperMD-list-line-5 .list-bullet::after {
+  background-color: transparent !important;
+  border: 1.8px solid #e0af68 !important;
+  border-radius: 0px !important;
+  box-shadow: 0 0 4px rgba(224, 175, 104, 0.4) !important;
 }
