@@ -1,12 +1,12 @@
 {
-  "cssTheme": "Primary",
+  "cssTheme": "AbsolutelyGlass",
   "monospaceFontFamily": "Maple Mono NF CN",
   "textFontFamily": "Maple Mono NF CN",
   "interfaceFontFamily": "Maple Mono NF CN",
   "baseFontSizeAction": true,
-  "accentColor": "#9af778",
+  "accentColor": "#7aa2f7",
   "baseFontSize": 17,
-  "theme": "moonstone",
+  "theme": "obsidian",
   "translucency": true,
   "enabledCssSnippets": [
     "workspace-integration",
