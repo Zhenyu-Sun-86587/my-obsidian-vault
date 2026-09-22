@@ -1,9 +1,10 @@
 {
-  "cssTheme": "AnuPpuccin",
+  "cssTheme": "CyberGlow",
   "monospaceFontFamily": "Maple Mono NF CN",
   "textFontFamily": "Maple Mono NF CN",
   "interfaceFontFamily": "Maple Mono NF CN",
   "baseFontSizeAction": true,
   "accentColor": "#5cf5ba",
-  "baseFontSize": 15
+  "baseFontSize": 15,
+  "theme": "obsidian"
 }

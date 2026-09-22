@@ -1,0 +1,1019 @@
+/* ============================================================
+   DEEP SPACE GLASS — tema Obsidian
+   Identidade visual extraída do Dashboard de Dopamina (V3):
+   fundo quase-preto com aurora, vidro translúcido,
+   duotone ciano→violeta e glow de precisão.
+   Todos os valores derivam dos tokens de :root do dashboard.
+   ============================================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
+
+/* ------------------------------------------------------------
+   1. TOKENS — espelho fiel do dashboard
+   ------------------------------------------------------------ */
+.theme-dark {
+  --ds-bg:            #01030a;
+  --ds-surface:       rgba(10, 19, 36, 0.5);
+  --ds-surface-2:     rgba(18, 32, 58, 0.55);
+  --ds-solid:         #0a1424;
+  --ds-glass:         rgba(10, 18, 33, 0.55);
+  --ds-border:        rgba(125, 200, 255, 0.16);
+  --ds-border-strong: rgba(125, 200, 255, 0.32);
+
+  --ds-text:          #e7f0fa;
+  --ds-text-muted:    #7e95b5;
+  --ds-text-faint:    #55688a;
+
+  --ds-accent:        #22d3ee;
+  --ds-accent-soft:   rgba(34, 211, 238, 0.12);
+  --ds-indigo:        #818cf8;
+  --ds-violet:        #8b5cf6;
+  --ds-magenta:       #e879f9;
+  --ds-positive:      #34d399;
+  --ds-warning:       #fbbf24;
+  --ds-danger:        #f87171;
+
+  --ds-grad: linear-gradient(135deg, #22d3ee 0%, #818cf8 55%, #a855f7 100%);
+  --ds-glow:      0 0 18px rgba(34, 211, 238, 0.5);
+  --ds-glow-soft: 0 0 10px rgba(34, 211, 238, 0.3);
+  --ds-shadow-card:
+    0 20px 50px -30px rgba(0, 0, 0, 0.9),
+    0 0 38px -16px rgba(34, 211, 238, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.05);
+
+  --ds-display: 'Chakra Petch', 'Inter', sans-serif;
+  --ds-blur: blur(18px);
+
+  /* ---------- mapeamento para as variáveis do Obsidian ----------
+     Superfícies OPACAS: transparência em painéis do workspace faz o
+     Obsidian empilhar camadas de render (texto duplicado/fantasma).
+     A aurora é aplicada como gradiente opaco em cada superfície. */
+  --background-primary:       #04070f;
+  --background-primary-alt:   #01030a;
+  --background-secondary:     #030509;
+  --background-secondary-alt: #02050c;
+
+  --background-modifier-border:       var(--ds-border);
+  --background-modifier-border-hover: var(--ds-border-strong);
+  --background-modifier-border-focus: var(--ds-accent);
+  --background-modifier-hover:        rgba(34, 211, 238, 0.08);
+  --background-modifier-active-hover: rgba(34, 211, 238, 0.14);
+  --background-modifier-form-field:   rgba(10, 20, 36, 0.6);
+  --background-modifier-success:      var(--ds-positive);
+  --background-modifier-error:        var(--ds-danger);
+  --background-modifier-error-rgb:    248, 113, 113;
+
+  --text-normal:       var(--ds-text);
+  --text-muted:        var(--ds-text-muted);
+  --text-faint:        var(--ds-text-faint);
+  --text-on-accent:    #04060e;
+  --text-accent:       var(--ds-accent);
+  --text-accent-hover: #67e8f9;
+  --text-selection:    rgba(34, 211, 238, 0.28);
+  --text-highlight-bg: rgba(139, 92, 246, 0.35);
+  --text-error:        var(--ds-danger);
+  --text-success:      var(--ds-positive);
+  --text-warning:      var(--ds-warning);
+
+  --interactive-normal:       var(--ds-surface-2);
+  --interactive-hover:        rgba(18, 32, 58, 0.8);
+  --interactive-accent:       var(--ds-accent);
+  --interactive-accent-hover: #67e8f9;
+  --color-accent:   var(--ds-accent);
+  --color-accent-1: var(--ds-indigo);
+  --color-accent-2: var(--ds-violet);
+
+  --divider-color:             var(--ds-border);
+  --scrollbar-thumb-bg:        rgba(34, 211, 238, 0.35);
+  --scrollbar-active-thumb-bg: rgba(139, 92, 246, 0.55);
+  --scrollbar-bg:              transparent;
+
+  --link-color:              var(--ds-accent);
+  --link-color-hover:        #67e8f9;
+  --link-unresolved-color:   var(--ds-magenta);
+  --link-unresolved-opacity: 0.55;
+  --link-external-color:     var(--ds-indigo);
+  --link-external-color-hover: #a5b4fc;
+  --link-decoration:         none;
+  --link-decoration-hover:   underline;
+
+  /* tipografia */
+  --font-text-theme:      'Inter', system-ui, -apple-system, sans-serif;
+  --font-interface-theme: 'Inter', system-ui, -apple-system, sans-serif;
+  --font-monospace-theme: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+
+  --h1-font: var(--ds-display);
+  --h2-font: var(--ds-display);
+  --h3-font: var(--ds-display);
+  --h4-font: var(--ds-display);
+  --h5-font: var(--font-text-theme);
+  --h6-font: var(--font-text-theme);
+
+  --h1-color: var(--ds-text);
+  --h2-color: var(--ds-accent);
+  --h3-color: var(--ds-indigo);
+  --h4-color: var(--ds-text);
+  --h5-color: var(--ds-text-muted);
+  --h6-color: var(--ds-text-faint);
+
+  --h1-weight: 700;  --h1-size: 2.25em;  --h1-line-height: 1.16;
+  --h2-weight: 700;  --h2-size: 1.6em;
+  --h3-weight: 600;  --h3-size: 1.28em;
+  --h4-weight: 600;  --h4-size: 1.04em;
+  --h5-weight: 600;  --h5-size: 0.94em;
+  --h6-weight: 600;  --h6-size: 0.85em;
+
+  /* negrito e itálico bem visíveis */
+  --bold-weight: 700;
+  --bold-color: var(--ds-accent);
+  --italic-color: var(--ds-magenta);
+
+  /* forma — raio-sm 9 / md 12 / lg 16 do dashboard */
+  --radius-s:  9px;
+  --radius-m:  12px;
+  --radius-l:  16px;
+  --radius-xl: 18px;
+  --input-radius: 12px;
+  --tab-radius: 9px;
+  --tab-radius-active: 9px;
+
+  /* superfícies de UI */
+  --titlebar-background:         transparent;
+  --titlebar-background-focused: transparent;
+  --tab-container-background:    transparent;
+  --tab-background-active:       rgba(18, 32, 58, 0.55);
+  --tab-text-color-focused-active: var(--ds-accent);
+  --tab-outline-color:           var(--ds-border);
+  --ribbon-background:           transparent;
+
+  --nav-item-color:             var(--ds-text-muted);
+  --nav-item-color-hover:       var(--ds-text);
+  --nav-item-color-active:      var(--ds-accent);
+  --nav-item-background-hover:  rgba(18, 32, 58, 0.7);
+  --nav-item-weight-active:     600;
+  --nav-indentation-guide-color: rgba(125, 200, 255, 0.14);
+
+  --modal-background:        var(--ds-solid);
+  --modal-border-color:      var(--ds-border-strong);
+  --prompt-border-color:     var(--ds-border-strong);
+  --blockquote-border-color: var(--ds-accent);
+  --hr-color:                var(--ds-border);
+
+  --table-header-background:    rgba(10, 20, 36, 0.7);
+  --table-row-alt-background:   rgba(125, 200, 255, 0.025);
+  --table-row-background-hover: rgba(34, 211, 238, 0.07);
+  --table-border-color:         var(--ds-border);
+
+  --checkbox-color:        var(--ds-accent);
+  --checkbox-color-hover:  #67e8f9;
+  --checkbox-border-color: var(--ds-border-strong);
+
+  --tag-color:            var(--ds-accent);
+  --tag-background:       rgba(34, 211, 238, 0.12);
+  --tag-background-hover: rgba(34, 211, 238, 0.22);
+  --tag-border-color:     rgba(34, 211, 238, 0.35);
+  --tag-border-width:     1px;
+  --tag-radius:           999px;
+
+  --code-background: rgba(10, 20, 36, 0.65);
+  --code-normal:     var(--ds-accent);
+  --embed-border-left: 2px solid var(--ds-violet);
+
+  --icon-color:        var(--ds-text-muted);
+  --icon-color-hover:  var(--ds-accent);
+  --icon-color-active: var(--ds-accent);
+
+  --graph-line:            rgba(125, 200, 255, 0.18);
+  --graph-node:            var(--ds-text-muted);
+  --graph-node-tag:        var(--ds-accent);
+  --graph-node-attachment: var(--ds-violet);
+  --graph-node-unresolved: var(--ds-magenta);
+  --graph-node-focused:    #67e8f9;
+}
+
+/* ------------------------------------------------------------
+   2. FUNDO — aurora fixa + grade técnica de 48px
+   Réplica exata do body do dashboard.
+   ------------------------------------------------------------ */
+.theme-dark body {
+  background:
+    radial-gradient(1000px 560px at 78% -12%, rgba(139, 92, 246, 0.30), transparent 62%),
+    radial-gradient(880px 520px at 8% 4%,    rgba(34, 211, 238, 0.22), transparent 58%),
+    radial-gradient(900px 900px at 96% 92%,  rgba(232, 121, 249, 0.14), transparent 62%),
+    radial-gradient(700px 500px at 45% 60%,  rgba(99, 102, 241, 0.08), transparent 65%),
+    linear-gradient(rgba(125, 200, 255, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(125, 200, 255, 0.03) 1px, transparent 1px),
+    var(--ds-bg);
+  background-size: auto, auto, auto, auto, 48px 48px, 48px 48px, auto;
+  background-attachment: fixed;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* A aurora entra no editor como GRADIENTE OPACO (base #04070f sólida):
+   nada de camadas transparentes empilhadas = nada de texto fantasma. */
+.theme-dark .workspace-leaf-content[data-type='markdown'] .view-content,
+.theme-dark .workspace-leaf-content[data-type='empty'] .view-content,
+.theme-dark .workspace-leaf-content[data-type='canvas'] .view-content,
+.theme-dark .workspace-leaf-content[data-type='graph'] .view-content {
+  background:
+    radial-gradient(900px 500px at 80% -10%, rgba(139, 92, 246, 0.14), transparent 60%),
+    radial-gradient(800px 480px at 4% 0%,   rgba(34, 211, 238, 0.10), transparent 55%),
+    radial-gradient(700px 700px at 96% 100%, rgba(232, 121, 249, 0.07), transparent 60%),
+    linear-gradient(rgba(125, 200, 255, 0.02) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(125, 200, 255, 0.02) 1px, transparent 1px),
+    #04070f;
+  background-size: auto, auto, auto, 48px 48px, 48px 48px, auto;
+}
+.theme-dark .markdown-source-view,
+.theme-dark .markdown-reading-view,
+.theme-dark .cm-editor,
+.theme-dark .cm-scroller {
+  background: transparent;
+}
+
+.theme-dark ::selection { background: rgba(34, 211, 238, 0.30); }
+
+/* ------------------------------------------------------------
+   3. SIDEBAR — vidro escuro com halo ciano na borda
+   ------------------------------------------------------------ */
+.theme-dark .workspace-split.mod-left-split,
+.theme-dark .workspace-split.mod-right-split {
+  background: linear-gradient(180deg, #040912, #02050c) !important;
+}
+.theme-dark .workspace-split.mod-left-split {
+  border-right: 1px solid var(--ds-border);
+  box-shadow: 1px 0 30px -10px rgba(34, 211, 238, 0.25);
+}
+.theme-dark .workspace-split.mod-right-split {
+  border-left: 1px solid var(--ds-border);
+  box-shadow: -1px 0 30px -10px rgba(139, 92, 246, 0.25);
+}
+.theme-dark .workspace-ribbon {
+  background: linear-gradient(180deg, #040912, #02050c) !important;
+  border-right: 1px solid var(--ds-border);
+}
+
+/* item de navegação ativo — exatamente o .nav-item.ativo do dashboard */
+.theme-dark .nav-file-title,
+.theme-dark .nav-folder-title {
+  border-radius: var(--radius-m);
+  border: 1px solid transparent;
+  transition: background 0.15s, color 0.15s, box-shadow 0.2s, border-color 0.2s;
+}
+.theme-dark .nav-file-title.is-active,
+.theme-dark .tree-item-self.is-active {
+  background: linear-gradient(135deg, rgba(34, 211, 238, 0.14), rgba(139, 92, 246, 0.12)) !important;
+  border: 1px solid rgba(34, 211, 238, 0.35);
+  color: var(--ds-accent);
+  box-shadow: 0 0 20px -4px rgba(34, 211, 238, 0.5), inset 0 0 14px rgba(34, 211, 238, 0.08);
+}
+.theme-dark .nav-folder-title-content {
+  font-family: var(--ds-display);
+  font-weight: 500;
+  letter-spacing: 0.02em;
+}
+
+/* cabeçalho de painel em HUD, como o .card-titulo / .hero-kicker */
+.theme-dark .nav-header .nav-buttons-container,
+.theme-dark .view-header {
+  border-bottom: 1px solid var(--ds-border);
+}
+.theme-dark .view-header-title {
+  font-family: var(--ds-display);
+  letter-spacing: 0.02em;
+}
+.theme-dark .tree-item-self.mod-collapsible > .tree-item-inner {
+  font-family: var(--ds-display);
+  font-size: 11px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--ds-text-muted);
+}
+
+/* ------------------------------------------------------------
+   4. ABAS — vidro, com filete de brilho ciano no ativo
+   ------------------------------------------------------------ */
+.theme-dark .workspace-tab-header-container {
+  background: #02050c !important;
+  border-bottom: 1px solid var(--ds-border);
+}
+.theme-dark .workspace-tab-header { position: relative; }
+.theme-dark .workspace-tab-header.is-active .workspace-tab-header-inner {
+  background: linear-gradient(135deg, rgba(34, 211, 238, 0.12), rgba(139, 92, 246, 0.10));
+  border-radius: var(--radius-s);
+  box-shadow: inset 0 0 14px rgba(34, 211, 238, 0.08);
+}
+.theme-dark .workspace-tab-header.is-active::after {
+  content: '';
+  position: absolute;
+  left: 10px; right: 10px; bottom: 0;
+  height: 2px;
+  background: var(--ds-grad);
+  border-radius: 2px;
+  box-shadow: 0 0 12px rgba(34, 211, 238, 0.7);
+}
+
+/* ------------------------------------------------------------
+   5. TIPOGRAFIA — Chakra Petch nos títulos, H1 com glow
+   ------------------------------------------------------------ */
+/* H1 — ciano claro com glow duplo, voz de título-herói.
+   Sem background-clip: text (transformava emojis em silhuetas). */
+.theme-dark .markdown-rendered h1,
+.theme-dark .HyperMD-header-1,
+.theme-dark .inline-title {
+  font-family: var(--ds-display);
+  letter-spacing: 0.005em;
+  color: #67e8f9;
+  text-shadow:
+    0 0 28px rgba(34, 211, 238, 0.45),
+    0 0 60px rgba(129, 140, 248, 0.3);
+}
+
+/* H2 com filete duotone abaixo — eco do .hero-kicker */
+.theme-dark .markdown-rendered h2,
+.theme-dark .HyperMD-header-2 {
+  font-family: var(--ds-display);
+  text-shadow: 0 0 22px rgba(34, 211, 238, 0.4);
+}
+.theme-dark .markdown-rendered h2::after {
+  content: '';
+  display: block;
+  margin-top: 0.3em;
+  height: 1px;
+  width: 100%;
+  background: linear-gradient(90deg, var(--ds-accent), rgba(139, 92, 246, 0.5) 45%, transparent 85%);
+  box-shadow: 0 0 8px rgba(34, 211, 238, 0.45);
+}
+
+/* H3 — barra vertical duotone antes do texto, voz de sub-seção */
+.theme-dark .markdown-rendered h3::before {
+  content: '';
+  display: inline-block;
+  width: 4px;
+  height: 0.85em;
+  margin-right: 10px;
+  border-radius: 2px;
+  background: var(--ds-grad);
+  box-shadow: 0 0 10px rgba(34, 211, 238, 0.6);
+  vertical-align: -0.08em;
+}
+.theme-dark .markdown-rendered h3,
+.theme-dark .HyperMD-header-3 {
+  font-family: var(--ds-display);
+}
+
+/* H6 vira kicker HUD — versalete com traço luminoso */
+.theme-dark .markdown-rendered h6 {
+  font-family: var(--ds-display);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--ds-text-muted);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.theme-dark .markdown-rendered h6::before {
+  content: '';
+  width: 26px;
+  height: 1px;
+  flex-shrink: 0;
+  background: linear-gradient(90deg, var(--ds-accent), transparent);
+  box-shadow: 0 0 8px rgba(34, 211, 238, 0.8);
+}
+
+/* NEGRITO — ciano 700 com glow sutil, salta do texto */
+.theme-dark strong,
+.theme-dark .cm-strong {
+  color: var(--ds-accent);
+  font-weight: 700;
+  text-shadow: 0 0 12px rgba(34, 211, 238, 0.45);
+}
+/* ITÁLICO — magenta, inconfundível ao lado do corpo azulado */
+.theme-dark em,
+.theme-dark .cm-em {
+  color: var(--ds-magenta);
+  font-style: italic;
+}
+/* negrito + itálico juntos — índigo com glow (emoji-safe) */
+.theme-dark strong em,
+.theme-dark em strong,
+.theme-dark .cm-strong.cm-em {
+  color: var(--ds-indigo);
+  font-weight: 700;
+  font-style: italic;
+  text-shadow: 0 0 12px rgba(129, 140, 248, 0.55);
+}
+.theme-dark mark {
+  color: #04060e;
+  background: linear-gradient(135deg, #22d3ee, #818cf8);
+  padding: 0 4px;
+  border-radius: 4px;
+}
+
+.theme-dark hr,
+.theme-dark .markdown-rendered hr {
+  border: none;
+  height: 2px;
+  border-radius: 2px;
+  background: linear-gradient(90deg,
+    transparent,
+    rgba(34, 211, 238, 0.85) 30%,
+    rgba(139, 92, 246, 0.7) 70%,
+    transparent);
+  box-shadow: 0 0 12px rgba(34, 211, 238, 0.35);
+}
+
+/* números tabulares no display, como .num */
+.theme-dark .markdown-rendered td:has(+ td),
+.theme-dark .markdown-rendered .num { font-variant-numeric: tabular-nums; }
+
+/* ------------------------------------------------------------
+   6. LINKS INTERNOS — ciano, com glow no hover
+   ------------------------------------------------------------ */
+.theme-dark .internal-link,
+.theme-dark .cm-hmd-internal-link {
+  color: var(--ds-accent);
+  text-decoration: none;
+  border-bottom: 1px solid rgba(34, 211, 238, 0.25);
+  transition: color 0.15s, border-color 0.15s, text-shadow 0.15s;
+}
+.theme-dark .internal-link:hover,
+.theme-dark .cm-hmd-internal-link:hover {
+  color: #67e8f9;
+  border-bottom-color: #67e8f9;
+  text-shadow: 0 0 10px rgba(34, 211, 238, 0.6);
+}
+.theme-dark .internal-link.is-unresolved { color: var(--ds-magenta); border-bottom-style: dashed; }
+.theme-dark .cm-formatting-link,
+.theme-dark .cm-formatting-link-string { color: var(--ds-text-faint); }
+
+/* ------------------------------------------------------------
+   7. CALLOUTS — design aprovado: vidro tintado + barra luminosa
+   O tema assume TODO o visual (!important vence os fundos dos
+   snippets Nick Milo); dos snippets ficam os nomes PT e ícones.
+   ------------------------------------------------------------ */
+.theme-dark .callout {
+  position: relative;
+  --callout-radius: 14px;
+  border-radius: 14px;
+  border: 1px solid rgba(var(--callout-color), 0.45) !important;
+  background:
+    linear-gradient(155deg, rgba(var(--callout-color), 0.13), rgba(var(--callout-color), 0.045) 55%),
+    rgba(8, 16, 30, 0.75) !important;
+  box-shadow:
+    0 0 24px -8px rgba(var(--callout-color), 0.5),
+    0 14px 30px -22px rgba(0, 0, 0, 0.9),
+    inset 0 1px 0 rgba(255, 255, 255, 0.06) !important;
+  overflow: hidden;
+  mix-blend-mode: normal;
+  padding: 0;
+}
+/* barra lateral luminosa */
+.theme-dark .callout::before {
+  content: '';
+  position: absolute;
+  left: 0; top: 10px; bottom: 10px;
+  width: 3px;
+  border-radius: 0 3px 3px 0;
+  background: rgb(var(--callout-color));
+  box-shadow: 0 0 12px rgba(var(--callout-color), 0.9);
+}
+/* filete de brilho no topo (assinatura dos cards do dashboard) */
+.theme-dark .callout::after {
+  content: '';
+  position: absolute;
+  top: 0; left: 18px; right: 18px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(var(--callout-color), 0.6), transparent);
+}
+.theme-dark .callout-title {
+  padding: 13px 18px 7px 20px;
+  background: transparent !important;
+  font-family: var(--ds-display);
+  font-weight: 600;
+  font-size: 1.06em;
+  letter-spacing: 0.04em;
+  gap: 10px;
+  color: rgb(var(--callout-color)) !important;
+  text-shadow: 0 0 14px rgba(var(--callout-color), 0.55);
+}
+.theme-dark .callout-icon {
+  color: rgb(var(--callout-color)) !important;
+  filter: drop-shadow(0 0 6px rgba(var(--callout-color), 0.8));
+}
+.theme-dark .callout-content {
+  padding: 0 20px 15px 20px;
+  background: transparent !important;
+  color: #dbe7f5 !important;
+  font-size: 1em;
+  line-height: 1.55;
+}
+/* garante que nenhum snippet encolha a fonte dentro do callout */
+.theme-dark .callout { font-size: var(--font-text-size, 1em); }
+.theme-dark .callout-content p { color: #dbe7f5; }
+/* negrito dentro do callout herda a cor do tipo (sem glow ciano) */
+.theme-dark .callout-content strong,
+.theme-dark .callout-title strong {
+  color: rgb(var(--callout-color));
+  text-shadow: none;
+}
+.theme-dark .callout-content em { color: var(--ds-magenta); }
+.theme-dark .callout-content mark {
+  background: rgba(var(--callout-color), 0.22);
+  color: #fff;
+}
+
+/* cores dos tipos principais — pinadas na paleta do tema
+   (vencem as dos snippets; os demais tipos do pack Nick Milo
+   mantêm as cores deles, já com a estrutura nova) */
+.theme-dark .callout[data-callout='note'],
+.theme-dark .callout[data-callout='nota'],
+.theme-dark .callout[data-callout='info'],
+.theme-dark .callout[data-callout='todo'] { --callout-color: 34, 211, 238 !important; }
+.theme-dark .callout[data-callout='tip'],
+.theme-dark .callout[data-callout='dica'],
+.theme-dark .callout[data-callout='success'],
+.theme-dark .callout[data-callout='sucesso'] { --callout-color: 52, 211, 153 !important; }
+.theme-dark .callout[data-callout='warning'],
+.theme-dark .callout[data-callout='atenção'],
+.theme-dark .callout[data-callout='atencao'],
+.theme-dark .callout[data-callout='aviso'] { --callout-color: 251, 191, 36 !important; }
+.theme-dark .callout[data-callout='danger'],
+.theme-dark .callout[data-callout='error'],
+.theme-dark .callout[data-callout='erro'],
+.theme-dark .callout[data-callout='perigo'],
+.theme-dark .callout[data-callout='importante'] { --callout-color: 248, 113, 113 !important; }
+.theme-dark .callout[data-callout='prioridade'] { --callout-color: 249, 115, 22 !important; }
+.theme-dark .callout[data-callout='question'],
+.theme-dark .callout[data-callout='pergunta'],
+.theme-dark .callout[data-callout='help'],
+.theme-dark .callout[data-callout='faq'] { --callout-color: 232, 121, 249 !important; }
+.theme-dark .callout[data-callout='quote'],
+.theme-dark .callout[data-callout='citação'],
+.theme-dark .callout[data-callout='citacao'],
+.theme-dark .callout[data-callout='example'],
+.theme-dark .callout[data-callout='exemplo'] { --callout-color: 139, 92, 246 !important; }
+.theme-dark .callout[data-callout='obs'],
+.theme-dark .callout[data-callout='observação'],
+.theme-dark .callout[data-callout='observacao'] { --callout-color: 139, 92, 246 !important; }
+
+/* ------------------------------------------------------------
+   8. CITAÇÃO E CÓDIGO
+   ------------------------------------------------------------ */
+.theme-dark blockquote {
+  background: rgba(34, 211, 238, 0.05);
+  border-left: 2px solid var(--ds-accent);
+  border-radius: 0 var(--radius-s) var(--radius-s) 0;
+  padding: 10px 18px;
+  color: #cfe0f2;
+  box-shadow: inset 8px 0 24px -18px rgba(34, 211, 238, 0.9);
+}
+
+.theme-dark code,
+.theme-dark .cm-inline-code {
+  background: rgba(10, 20, 36, 0.65);
+  border: 1px solid var(--ds-border);
+  border-radius: 6px;
+  padding: 1px 6px;
+  font-size: 0.87em;
+  color: var(--ds-accent);
+}
+.theme-dark pre,
+.theme-dark .HyperMD-codeblock-bg {
+  background: rgba(10, 20, 36, 0.6) !important;
+  backdrop-filter: var(--ds-blur);
+  -webkit-backdrop-filter: var(--ds-blur);
+  border: 1px solid var(--ds-border);
+  border-radius: var(--radius-m);
+  box-shadow: var(--ds-shadow-card);
+}
+.theme-dark pre code { border: none; background: transparent; padding: 0; }
+
+/* ------------------------------------------------------------
+   9. TABELAS — cabeçalho HUD, linha ativa com filete duotone
+   ------------------------------------------------------------ */
+.theme-dark .markdown-rendered table {
+  border-collapse: separate;
+  border-spacing: 0;
+  background: var(--ds-glass);
+  backdrop-filter: var(--ds-blur);
+  -webkit-backdrop-filter: var(--ds-blur);
+  border: 1px solid var(--ds-border);
+  border-radius: var(--radius-l);
+  overflow: hidden;
+  box-shadow: var(--ds-shadow-card);
+}
+.theme-dark .markdown-rendered th {
+  background: rgba(10, 20, 36, 0.7);
+  color: var(--ds-text-muted);
+  font-family: var(--ds-display);
+  font-size: 0.76em;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  padding: 12px 16px;
+}
+.theme-dark .markdown-rendered td { padding: 11px 16px; font-variant-numeric: tabular-nums; }
+.theme-dark .markdown-rendered tbody tr:hover td { background: rgba(34, 211, 238, 0.07); }
+.theme-dark .markdown-rendered tbody tr:hover td:first-child {
+  box-shadow: inset 3px 0 0 var(--ds-accent);
+}
+
+/* ------------------------------------------------------------
+   10. TAGS — pílula ciano, como o .chip-filtro
+   ------------------------------------------------------------ */
+.theme-dark a.tag,
+.theme-dark .cm-hashtag {
+  font-family: var(--ds-display);
+  font-size: 0.76em;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  padding: 3px 11px;
+  border: 1px solid rgba(34, 211, 238, 0.35);
+  background: rgba(34, 211, 238, 0.12);
+  color: var(--ds-accent);
+  border-radius: 999px;
+  text-decoration: none;
+  transition: background 0.15s, box-shadow 0.15s;
+}
+.theme-dark a.tag:hover {
+  background: rgba(34, 211, 238, 0.22);
+  box-shadow: var(--ds-glow-soft);
+}
+
+/* ------------------------------------------------------------
+   11. PROPERTIES / FRONTMATTER — painel de vidro
+   ------------------------------------------------------------ */
+.theme-dark .metadata-container {
+  background: var(--ds-glass);
+  backdrop-filter: var(--ds-blur);
+  -webkit-backdrop-filter: var(--ds-blur);
+  border: 1px solid var(--ds-border);
+  border-radius: var(--radius-l);
+  padding: 14px 18px;
+  box-shadow: var(--ds-shadow-card);
+}
+.theme-dark .metadata-property-key-input {
+  font-family: var(--ds-display);
+  color: var(--ds-text-muted);
+  font-size: 0.8em;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+/* ------------------------------------------------------------
+   12. BOTÕES, CAMPOS, MODAIS
+   ------------------------------------------------------------ */
+.theme-dark button:not(.clickable-icon) {
+  background: var(--ds-surface-2);
+  border: 1px solid var(--ds-border);
+  border-radius: var(--radius-m);
+  transition: border-color 0.15s, box-shadow 0.15s, transform 0.15s;
+}
+.theme-dark button:not(.clickable-icon):hover { border-color: var(--ds-accent); }
+/* button.mod-cta para vencer a regra genérica de button acima —
+   senão o fundo fica escuro e o texto preto some (ex.: "Create"
+   do modal de Daily Note) */
+.theme-dark button.mod-cta,
+.theme-dark .mod-cta {
+  background: var(--ds-grad) !important;
+  border-color: transparent;
+  color: #04060e !important;
+  font-family: var(--ds-display);
+  font-weight: 700;
+  box-shadow: 0 0 22px -6px rgba(34, 211, 238, 0.7);
+}
+.theme-dark button.mod-cta:hover,
+.theme-dark .mod-cta:hover { transform: translateY(-1px); }
+
+/* usar background-COLOR (não o atalho background:), senão o
+   background-repeat reseta e a seta do dropdown vira mosaico */
+.theme-dark input[type='text'],
+.theme-dark input[type='search'],
+.theme-dark textarea,
+.theme-dark select {
+  background-color: rgba(10, 20, 36, 0.6);
+  border: 1px solid var(--ds-border);
+  border-radius: var(--radius-m);
+}
+.theme-dark select,
+.theme-dark select.dropdown,
+.theme-dark .dropdown {
+  background-repeat: no-repeat !important;
+}
+.theme-dark input:focus-visible,
+.theme-dark button:focus-visible,
+.theme-dark textarea:focus-visible {
+  outline: 2px solid var(--ds-accent);
+  outline-offset: 2px;
+}
+
+/* menus e modais usam --solid: precisam ser legíveis sobre a aurora */
+.theme-dark .modal,
+.theme-dark .prompt,
+.theme-dark .suggestion-container,
+.theme-dark .menu {
+  background: var(--ds-solid) !important;
+  border: 1px solid var(--ds-border-strong);
+  border-radius: var(--radius-l);
+  box-shadow:
+    0 30px 70px -30px rgba(0, 0, 0, 0.95),
+    0 0 40px -14px rgba(34, 211, 238, 0.35);
+}
+.theme-dark .modal-bg,
+.theme-dark .prompt-bg { background: rgba(1, 3, 10, 0.7); }
+.theme-dark .suggestion-item.is-selected {
+  background: linear-gradient(135deg, rgba(34, 211, 238, 0.14), rgba(139, 92, 246, 0.12));
+  color: var(--ds-accent);
+}
+
+/* ------------------------------------------------------------
+   13. CHECKBOX / TAREFAS
+   ------------------------------------------------------------ */
+.theme-dark input[type='checkbox'] {
+  border-radius: 5px;
+  border: 1px solid var(--ds-border-strong);
+}
+.theme-dark input[type='checkbox']:checked {
+  background: var(--ds-grad);
+  border-color: transparent;
+  box-shadow: 0 0 12px -2px rgba(34, 211, 238, 0.7);
+}
+.theme-dark .task-list-item.is-checked { color: var(--ds-text-faint); }
+
+/* ------------------------------------------------------------
+   14. GRAPH VIEW E BUSCA
+   ------------------------------------------------------------ */
+/* "bloom" no canvas do grafo: saturação + halo suave nos pontos */
+.theme-dark .workspace-leaf-content[data-type='graph'] canvas,
+.theme-dark .workspace-leaf-content[data-type='localgraph'] canvas {
+  filter:
+    saturate(1.4) brightness(1.12) contrast(1.03)
+    drop-shadow(0 0 10px rgba(34, 211, 238, 0.25))
+    drop-shadow(0 0 22px rgba(139, 92, 246, 0.15));
+}
+
+.theme-dark .graph-view.color-fill          { color: var(--ds-text-muted); }
+.theme-dark .graph-view.color-fill-focused  { color: #67e8f9; }
+.theme-dark .graph-view.color-line          { color: rgba(125, 200, 255, 0.18); }
+.theme-dark .graph-view.color-fill-tag      { color: var(--ds-accent); }
+.theme-dark .graph-view.color-fill-attachment { color: var(--ds-violet); }
+.theme-dark .graph-view.color-fill-unresolved { color: var(--ds-magenta); }
+.theme-dark .graph-view.color-circle        { color: var(--ds-indigo); }
+
+.theme-dark .search-result-file-match:hover {
+  background: rgba(34, 211, 238, 0.08);
+  box-shadow: inset 3px 0 0 var(--ds-accent);
+}
+.theme-dark .search-result-file-matched-text {
+  background: rgba(139, 92, 246, 0.32);
+  color: var(--ds-text);
+}
+
+/* ------------------------------------------------------------
+   15. STATUS BAR — HUD inferior
+   ------------------------------------------------------------ */
+.theme-dark .status-bar {
+  background: #02050c !important;
+  border-top: 1px solid var(--ds-border);
+  color: var(--ds-text-muted);
+  font-family: var(--ds-display);
+  font-size: 11px;
+  letter-spacing: 0.14em;
+}
+
+/* ------------------------------------------------------------
+   16. SCROLLBAR — duotone ciano→violeta
+   ------------------------------------------------------------ */
+.theme-dark ::-webkit-scrollbar { width: 10px; height: 10px; }
+.theme-dark ::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, rgba(34, 211, 238, 0.35), rgba(139, 92, 246, 0.35));
+  border-radius: 6px;
+}
+.theme-dark ::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, rgba(34, 211, 238, 0.6), rgba(139, 92, 246, 0.6));
+}
+.theme-dark ::-webkit-scrollbar-track { background: transparent; }
+
+/* ------------------------------------------------------------
+   17. DAY PLANNER — blocos de tempo em vidro ciano com glow
+   Usa as variáveis oficiais do plugin (--time-block-*).
+   ------------------------------------------------------------ */
+.theme-dark [data-type='planner-timeline'] .view-content,
+.theme-dark [data-type='planner-weekly'] .view-content,
+.theme-dark [data-type='planner-time-tracker'] .view-content {
+  --time-block-bg-color: #0c1a30;
+  --time-block-border: 1px solid rgba(34, 211, 238, 0.38);
+  --time-block-border-radius: 10px;
+  --time-block-box-shadow:
+    0 0 18px -6px rgba(34, 211, 238, 0.45),
+    0 8px 20px -14px rgba(0, 0, 0, 0.9),
+    inset 0 0 12px rgba(34, 211, 238, 0.06),
+    inset 0 1px 0 rgba(255, 255, 255, 0.05);
+  --planner-time-block-font-family: 'Inter', system-ui, sans-serif;
+  --planner-time-block-summary-font-weight: 600;
+}
+
+/* texto do bloco mais claro que o padrão (era text-muted) */
+.theme-dark [data-type='planner-timeline'] .padding > .content,
+.theme-dark [data-type='planner-weekly'] .padding > .content,
+.theme-dark [data-type='planner-time-tracker'] .padding > .content {
+  color: var(--ds-text);
+}
+
+/* hover: borda e glow acendem, como os cards do dashboard */
+.theme-dark [data-type='planner-timeline'] .padding > .content:hover,
+.theme-dark [data-type='planner-weekly'] .padding > .content:hover {
+  --time-block-border-color-override: var(--ds-accent);
+  --time-block-box-shadow:
+    0 0 26px -6px rgba(34, 211, 238, 0.65),
+    inset 0 0 14px rgba(34, 211, 238, 0.1);
+}
+
+/* bloco concluído esmaece */
+.theme-dark [data-type='planner-timeline'] .layout.is-completed,
+.theme-dark [data-type='planner-weekly'] .layout.is-completed {
+  color: var(--ds-text-faint);
+  text-decoration: line-through;
+}
+
+/* agulha do "agora" — duotone com brilho */
+.theme-dark [data-type='planner-timeline'] .needle,
+.theme-dark [data-type='planner-weekly'] .needle {
+  height: 2px;
+  background: var(--ds-grad) !important;
+  box-shadow: 0 0 10px rgba(34, 211, 238, 0.8);
+}
+
+/* fita de eventos de calendário remoto (Google/iCloud) em violeta */
+.theme-dark [data-type='planner-timeline'] .view-content,
+.theme-dark [data-type='planner-weekly'] .view-content {
+  --ribbon-color: var(--ds-violet);
+}
+
+/* mini-timeline da status bar */
+.theme-dark .mini-time-block {
+  background-color: rgba(34, 211, 238, 0.35) !important;
+  border-color: rgba(34, 211, 238, 0.5) !important;
+}
+
+/* ------------------------------------------------------------
+   18. MOVIMENTO REDUZIDO
+   ------------------------------------------------------------ */
+@media (prefers-reduced-motion: reduce) {
+  .theme-dark *, .theme-dark *::before, .theme-dark *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* ==========================================================
+   DEEP SPACE GLASS — AJUSTES 2026-08-26
+   1) Pastas coloridas "vidro" embutidas no tema (ex-snippet)
+   2) Callouts neon embutidos no tema (ex-snippet)
+   3) Acento ciano forçado pelo tema
+   4) Correção do Graph View no iPad/celular (filtro pesado
+      no canvas quebrava o grafo no WebKit móvel)
+   ========================================================== */
+
+/* --- 4) GRAPH VIEW no mobile: remove o "bloom" que trava o iPad --- */
+.is-mobile .workspace-leaf-content[data-type='graph'] canvas,
+.is-mobile .workspace-leaf-content[data-type='localgraph'] canvas,
+.is-tablet .workspace-leaf-content[data-type='graph'] canvas,
+.is-tablet .workspace-leaf-content[data-type='localgraph'] canvas {
+  filter: none !important;
+}
+/* blur de vidro também pesa no WebKit móvel — desativa no mobile */
+.is-mobile *, .is-tablet * {
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+}
+
+/* --- 3) Acento ciano (#22d3ee) automático com o tema --- */
+body {
+  --accent-h: 188 !important;
+  --accent-s: 86% !important;
+  --accent-l: 53% !important;
+  --gif-glow: rgba(34, 211, 238, 0.45);
+}
+
+/* --- 1) PASTAS COLORIDAS (vidro/glow, ciclo de 5) --- */
+.theme-dark {
+  --pf-cyan:    34, 211, 238;
+  --pf-indigo:  129, 140, 248;
+  --pf-violet:  139, 92, 246;
+  --pf-magenta: 232, 121, 249;
+  --pf-green:   52, 211, 153;
+}
+.theme-light {
+  --pf-cyan:    8, 145, 178;
+  --pf-indigo:  99, 102, 241;
+  --pf-violet:  124, 58, 237;
+  --pf-magenta: 192, 38, 211;
+  --pf-green:   5, 150, 105;
+}
+.nav-files-container > div > .nav-folder > .nav-folder-title {
+  --pf: var(--pf-cyan);
+  background: linear-gradient(135deg, rgba(var(--pf), 0.14), rgba(var(--pf), 0.06)) !important;
+  border: 1px solid rgba(var(--pf), 0.35);
+  color: rgb(var(--pf)) !important;
+  font-weight: 600;
+  border-radius: 9px;
+  margin: 3px 6px 3px 4px;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  box-shadow: 0 0 16px -6px rgba(var(--pf), 0.45), inset 0 0 12px rgba(var(--pf), 0.06);
+  transition: box-shadow 0.15s, filter 0.15s;
+}
+.nav-files-container > div > .nav-folder > .nav-folder-title .collapse-icon {
+  color: rgb(var(--pf));
+}
+.nav-files-container > div > .nav-folder:nth-child(5n+1) > .nav-folder-title { --pf: var(--pf-indigo); }
+.nav-files-container > div > .nav-folder:nth-child(5n+2) > .nav-folder-title { --pf: var(--pf-cyan); }
+.nav-files-container > div > .nav-folder:nth-child(5n+3) > .nav-folder-title { --pf: var(--pf-violet); }
+.nav-files-container > div > .nav-folder:nth-child(5n+4) > .nav-folder-title { --pf: var(--pf-magenta); }
+.nav-files-container > div > .nav-folder:nth-child(5n+5) > .nav-folder-title { --pf: var(--pf-green); }
+.workspace-leaf-content[data-type="file-explorer"] .nav-folder > .nav-folder-title[data-path]:hover {
+  box-shadow: 0 0 20px -4px rgba(var(--pf), 0.6), inset 0 0 14px rgba(var(--pf), 0.1);
+  filter: brightness(1.1);
+}
+
+/* --- 2) MEUS CALLOUTS (neon Deep Space) --- */
+.callout[data-callout='nota'],
+.callout[data-callout='note'] {
+  --callout-color: 34, 211, 238;
+  --callout-icon: lucide-pencil;
+}
+.callout[data-callout='atenção'],
+.callout[data-callout='atencao'],
+.callout[data-callout='warning'],
+.callout[data-callout='aviso'] {
+  --callout-color: 251, 191, 36;
+  --callout-icon: lucide-alert-triangle;
+}
+.callout[data-callout='importante'],
+.callout[data-callout='important'],
+.callout[data-callout='danger'],
+.callout[data-callout='error'],
+.callout[data-callout='erro'] {
+  --callout-color: 248, 113, 113;
+  --callout-icon: lucide-award;
+}
+.callout[data-callout='obs'],
+.callout[data-callout='observação'],
+.callout[data-callout='observacao'] {
+  --callout-color: 139, 92, 246;
+  --callout-icon: lucide-file-text;
+}
+.callout[data-callout='obs'] .callout-title-inner { letter-spacing: 0.1em; }
+.theme-dark .callout[data-callout='citação'],
+.theme-dark .callout[data-callout='citacao'],
+.theme-dark .callout[data-callout='quote'],
+.theme-dark .callout[data-callout='cite'],
+.callout[data-callout='citação'],
+.callout[data-callout='citacao'],
+.callout[data-callout='quote'],
+.callout[data-callout='cite'] {
+  --callout-color: 34, 197, 94 !important;
+  --callout-icon: lucide-quote;
+}
+
+/* ==========================================================
+   DEEP SPACE — GEOMETRIA DAS PASTAS TRAVADA (2026-08-26)
+   Mesma correção do Ideaverso: pasta ativa/focada não "anda".
+   ========================================================== */
+.nav-files-container > div > .nav-folder > .nav-folder-title,
+.nav-files-container > div > .nav-folder > .nav-folder-title.is-active,
+.nav-files-container > div > .nav-folder > .nav-folder-title.has-focus,
+.nav-files-container > div > .nav-folder.has-focus > .nav-folder-title,
+.workspace-leaf.mod-active .nav-files-container > div > .nav-folder.has-focus > .nav-folder-title,
+body:not(.is-grabbing) .nav-files-container > div > .nav-folder > .nav-folder-title.is-active:hover {
+  margin: 3px 6px 3px 4px !important;
+  margin-inline-start: 4px !important;
+  margin-inline-end: 6px !important;
+  border: 1px solid rgba(var(--pf), 0.35) !important;
+  border-radius: 9px !important;
+  transform: none !important;
+  color: rgb(var(--pf)) !important;
+}
+
+/* --- CALLOUT ALERTA (2026-08-30): sino tocando + rosa neon --- */
+.callout[data-callout='alerta'],
+.callout[data-callout='alert'] {
+  --callout-color: 244, 63, 94 !important;
+  --callout-icon: lucide-bell-ring;
+}
+
+/* --- CALLOUT IMPORTANTE (2026-08-30): gema + verde-menta quase ciano ---
+   Separa o importante do danger/error/erro (seguem vermelhos).
+   Precisa de !important + .theme-dark para vencer o bloco antigo. */
+.theme-dark .callout[data-callout='importante'],
+.theme-dark .callout[data-callout='important'],
+.callout[data-callout='importante'],
+.callout[data-callout='important'] {
+  --callout-color: 102, 235, 205 !important;
+  --callout-icon: lucide-gem;
+}
