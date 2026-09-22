@@ -122,3 +122,6 @@ nmap <Space>mc :surroundCode<CR>
 " Toggle Vim
 exmap toggleVim obcommand vim-toggle:toggle-vim
 nmap <Space>tv :toggleVim<CR>
+
+exmap cycleMaterial obcommand translucent-bg:cycle-material
+nmap <Space>tm :cycleMaterial<CR>

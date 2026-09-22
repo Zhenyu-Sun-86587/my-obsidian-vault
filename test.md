@@ -80,3 +80,9 @@ def softmax(x: np.ndarray) -> np.ndarray:
 if __name__ == "__main__":  
     logits = np.array([2.0, 1.0, 0.1])  
     print("Softmax 分布:", softmax(logits))  
+    
+
+```
+---
+### aaa
+# AAA
