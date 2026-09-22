@@ -1,1 +1,13 @@
-["obsidian-vimrc-support","slash-commander","editing-toolbar","url-into-selection","obsidian-outliner","omnisearch","obsidian-minimal-settings","obsidian-style-settings","vim-toggle","obsidian-relative-line-numbers","vim-mode-status"]
+[
+  "obsidian-vimrc-support",
+  "slash-commander",
+  "editing-toolbar",
+  "url-into-selection",
+  "obsidian-outliner",
+  "omnisearch",
+  "obsidian-minimal-settings",
+  "obsidian-style-settings",
+  "vim-toggle",
+  "obsidian-relative-line-numbers",
+  "vim-mode-status"
+]
