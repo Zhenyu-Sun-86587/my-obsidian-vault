@@ -1,14 +1,15 @@
 {
-  "cssTheme": "Tokyo Night",
+  "cssTheme": "AbsolutelyGlass",
   "monospaceFontFamily": "Maple Mono NF CN",
   "textFontFamily": "Maple Mono NF CN",
   "interfaceFontFamily": "Maple Mono NF CN",
   "baseFontSizeAction": true,
   "accentColor": "#7aa2f7",
   "baseFontSize": 15,
-  "theme": "obsidian",
+  "theme": "system",
   "translucency": false,
   "enabledCssSnippets": [
-    "workspace-integration"
+    "workspace-integration",
+    "smooth-folding"
   ]
 }
