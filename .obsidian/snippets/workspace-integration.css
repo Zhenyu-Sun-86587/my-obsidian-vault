@@ -70,3 +70,14 @@ body .status-bar-item.vim-cmd-stack-item {
   color: var(--text-normal) !important;
   border: 1px solid var(--background-modifier-border) !important;
 }
+
+/* 彻底抹除编辑区任何噪点、斜向拉丝渐变与残余条纹 */
+.workspace-leaf-content,
+.workspace-leaf-content .view-content,
+.markdown-source-view,
+.cm-scroller,
+.cm-content,
+.markdown-reading-view {
+  background-image: none !important;
+  background-size: auto !important;
+}

@@ -378,6 +378,13 @@
           "binaryVersion": "1.12.0",
           "binarySource": "custom"
         }
+      },
+      "0e93b630-f162-4a07-b18d-2134141cdd60": {
+        "codex": {
+          "binaryPath": "C:\\Users\\SZY\\AppData\\Local\\nvm\\v25.2.0\\node_modules\\@agentclientprotocol\\codex-acp\\dist\\index.js",
+          "binaryVersion": "1.12.0",
+          "binarySource": "custom"
+        }
       }
     }
   },
@@ -482,15 +489,6 @@
       "configuredAt": 1790094218029
     },
     {
-      "configuredModelId": "4c46cb40-0dae-4d3e-969a-a2259366bd3e",
-      "providerId": "6cebf848-b407-4dc1-bb20-9122fca3fc4b",
-      "info": {
-        "id": "gemini-3.8-flash-high",
-        "displayName": "gemini-3.8-flash-high"
-      },
-      "configuredAt": 1790099955034
-    },
-    {
       "providerId": "f982f9a7-eed5-4d56-8535-dd751997de15",
       "info": {
         "id": "gpt-6-astra",
@@ -517,7 +515,7 @@
           "input": 10,
           "output": 50
         },
-        "description": "Our most capable model for complex, demanding work."
+        "description": "Frontier intelligence for the most demanding work."
       },
       "configuredModelId": "456cd858-7815-4383-9395-2488afdae0bf",
       "configuredAt": 1790099973234
@@ -549,7 +547,7 @@
           "input": 5,
           "output": 30
         },
-        "description": "Reliable agentic workhorse for everyday tasks."
+        "description": "Older coding model for complex work."
       },
       "configuredModelId": "1df39881-5a8d-44e0-aa49-149f667155f0",
       "configuredAt": 1790099973235
@@ -581,7 +579,7 @@
           "input": 2,
           "output": 12
         },
-        "description": "Balanced agentic coding model for everyday work."
+        "description": "Older balanced model for straightforward work."
       },
       "configuredModelId": "22caf840-7d10-427c-93e0-1ff5c336ba65",
       "configuredAt": 1790099973235
@@ -613,7 +611,7 @@
           "input": 0.2,
           "output": 1.2
         },
-        "description": "Fast and affordable agentic coding model."
+        "description": "Older fast and efficient model."
       },
       "configuredModelId": "967ed4fd-c727-4c4c-8912-dd65b2f5f199",
       "configuredAt": 1790099973236
@@ -645,10 +643,28 @@
           "input": 5,
           "output": 30
         },
-        "description": "Proven previous-generation model for coding and general work."
+        "description": "Legacy coding model."
       },
       "configuredModelId": "c94cda73-7f8e-43b7-ab24-665e4a5e99f9",
       "configuredAt": 1790099973236
+    },
+    {
+      "providerId": "f982f9a7-eed5-4d56-8535-dd751997de15",
+      "info": {
+        "id": "gpt-6-sol",
+        "displayName": "GPT-6-sol"
+      },
+      "configuredModelId": "78041dda-3da0-4b5c-96eb-8fbbc9a59d7d",
+      "configuredAt": 1790172146361
+    },
+    {
+      "configuredModelId": "4c46cb40-0dae-4d3e-969a-a2259366bd3e",
+      "providerId": "6cebf848-b407-4dc1-bb20-9122fca3fc4b",
+      "info": {
+        "id": "gemini-3.8-flash-high",
+        "displayName": "gemini-3.8-flash-high"
+      },
+      "configuredAt": 1790099955034
     }
   ],
   "backends": {
