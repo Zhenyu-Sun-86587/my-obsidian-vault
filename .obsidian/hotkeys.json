@@ -24,5 +24,13 @@
       ],
       "key": "J"
     }
+  ],
+  "torch-cursor:toggle": [
+    {
+      "modifiers": [
+        "Mod"
+      ],
+      "key": "'"
+    }
   ]
 }

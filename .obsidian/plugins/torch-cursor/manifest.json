@@ -1,0 +1,9 @@
+{
+  "id": "torch-cursor",
+  "name": "Torch Cursor",
+  "version": "1.1.1",
+  "minAppVersion": "1.0.0",
+  "description": "Darkens the app and lights a warm torch glow around your text cursor.",
+  "author": "acxtrilla",
+  "isDesktopOnly": false
+}

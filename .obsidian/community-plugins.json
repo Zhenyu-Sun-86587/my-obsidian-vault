@@ -24,5 +24,7 @@
   "obsidian-excalidraw-plugin",
   "templater-obsidian",
   "quickadd",
-  "simple-sticky-notes"
+  "simple-sticky-notes",
+  "torch-cursor",
+  "smooth-cursor"
 ]

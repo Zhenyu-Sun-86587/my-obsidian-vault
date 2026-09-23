@@ -1,0 +1,13 @@
+{
+  "enabled": false,
+  "spareSidebars": false,
+  "followMode": "mouse",
+  "radius": 280,
+  "darkness": 0.97,
+  "intensity": 1,
+  "color": "#ff963c",
+  "flicker": true,
+  "speed": 0.22,
+  "caretWidth": 3,
+  "emberCaret": true
+}

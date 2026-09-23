@@ -1,0 +1,90 @@
+body {
+  /* defaults; the plugin overrides these from settings */
+  --torch-radius: 280px;
+  --torch-darkness: 0.97;
+  --torch-intensity: 1;
+  --torch-warm: 255, 150, 60;
+}
+
+.torch-cursor-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 48; /* above the workspace, below modals/menus */
+  pointer-events: none;
+  --torch-x: 50vw;
+  --torch-y: 50vh;
+  background: radial-gradient(
+    circle var(--torch-radius) at var(--torch-x) var(--torch-y),
+    transparent 0%,
+    rgba(0, 0, 0, calc(var(--torch-darkness) * 0.52)) 40%,
+    rgba(0, 0, 0, calc(var(--torch-darkness) * 0.91)) 70%,
+    rgba(0, 0, 0, var(--torch-darkness)) 100%
+  );
+}
+
+.torch-cursor-glow {
+  position: absolute;
+  inset: 0;
+  mix-blend-mode: screen;
+  opacity: var(--torch-intensity);
+  background: radial-gradient(
+    circle calc(var(--torch-radius) * 0.6) at var(--torch-x) var(--torch-y),
+    rgba(var(--torch-warm), 0.4),
+    rgba(var(--torch-warm), 0.12) 45%,
+    transparent 75%
+  );
+  animation: torch-flicker 2.4s ease-in-out infinite;
+}
+
+.torch-no-flicker .torch-cursor-glow {
+  animation: none;
+}
+
+@keyframes torch-flicker {
+  0%, 100% { filter: brightness(1); }
+  12% { filter: brightness(0.8); }
+  24% { filter: brightness(0.94); }
+  41% { filter: brightness(0.75); }
+  55% { filter: brightness(1); }
+  68% { filter: brightness(0.86); }
+  83% { filter: brightness(0.95); }
+}
+
+/* hide the native caret while torch mode draws its own */
+.torch-cursor-active .cm-content {
+  caret-color: transparent !important;
+}
+
+/* our drawn caret: burns bright at the exact caret position */
+.torch-cursor-caret {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: var(--torch-caret-width, 3px);
+  border-radius: 2px;
+  background: #ffdca8;
+  box-shadow:
+    0 0 6px rgba(var(--torch-warm), 0.9),
+    0 0 18px rgba(var(--torch-warm), 0.6),
+    0 0 40px rgba(var(--torch-warm), 0.35);
+  animation: torch-flicker 2.4s ease-in-out infinite;
+}
+
+/* ember caret: flame-gradient bar like the reference video */
+.torch-ember-caret .torch-cursor-caret {
+  background: linear-gradient(
+    to bottom,
+    #fff6c9,
+    #ffcf5e 30%,
+    #ff8a3d 60%,
+    #e05ce3 100%
+  );
+  box-shadow:
+    0 0 8px rgba(var(--torch-warm), 0.9),
+    0 0 22px rgba(var(--torch-warm), 0.55),
+    0 0 48px rgba(var(--torch-warm), 0.3);
+}
+
+.torch-no-flicker .torch-cursor-caret {
+  animation: none;
+}
