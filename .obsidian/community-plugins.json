@@ -17,9 +17,8 @@
   "enchanted-animations",
   "dataview",
   "3d-graph",
-  "contribution-graph",
   "obsidian-hover-editor",
-  "nested-ordered-numbering",
   "copilot",
-  "slidev"
+  "slidev",
+  "contribution-graph"
 ]
