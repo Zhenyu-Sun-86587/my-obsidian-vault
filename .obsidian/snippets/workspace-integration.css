@@ -27,12 +27,17 @@
   font-weight: 700 !important;
 }
 
-/* 彻底消灭 ITS Theme 分割线乱码方块，替换为高保真 ⚔️ 宝剑图腾 */
-.markdown-rendered hr::after,
-.cm-hr::after,
-hr::after {
+/* 仅针对 ITS Theme 作用域进行精准修复：严格绝对居中，杜绝污染其他主题 */
+body.theme-its .markdown-rendered hr::after,
+body.theme-its .cm-hr::after {
   content: " ⚔️ " !important;
   font-family: initial !important;
   font-size: 16px !important;
+  position: absolute !important;
+  left: 50% !important;
+  top: 50% !important;
+  transform: translate(-50%, -50%) !important;
+  background-color: var(--background-primary) !important;
+  padding: 0 8px !important;
 }
 
