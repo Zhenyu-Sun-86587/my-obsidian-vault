@@ -6,8 +6,9 @@
   "foldHeading": true,
   "foldIndent": true,
   "showLineNumber": true,
-  "readableLineLength": true,
+  "readableLineLength": false,
   "strictLineBreaks": false,
   "livePreview": true,
-  "promptDelete": false
+  "promptDelete": false,
+  "spellcheck": false
 }

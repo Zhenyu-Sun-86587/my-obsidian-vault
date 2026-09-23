@@ -20,5 +20,8 @@
   "obsidian-hover-editor",
   "copilot",
   "slidev",
-  "contribution-graph"
+  "contribution-graph",
+  "obsidian-excalidraw-plugin",
+  "templater-obsidian",
+  "quickadd"
 ]

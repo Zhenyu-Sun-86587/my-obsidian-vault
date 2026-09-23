@@ -1,12 +1,72 @@
 {
   "recentFiles": [
     {
-      "basename": "仓库分析提示词",
-      "path": "开发相关/仓库分析提示词.md"
+      "basename": "HermesSurface便签开发需求规约",
+      "path": "科研探索/HermesSurface便签开发需求规约.md"
+    },
+    {
+      "basename": "index",
+      "path": "Notion/CS336/内核优化&Trition/index.md"
     },
     {
       "basename": "2026-09-25_预推免学术汇报Demo",
       "path": "Slides/2026-09-25_预推免学术汇报Demo.md"
+    },
+    {
+      "basename": "index",
+      "path": "Notion/LLM/RL基础/PPO DPO GRPO/ChatGPT-RLHF 学习路径与推导/index.md"
+    },
+    {
+      "basename": "index",
+      "path": "Notion/LLM/RL基础/PPO DPO GRPO/index.md"
+    },
+    {
+      "basename": "index",
+      "path": "Notion/LLM/LLM&RL/附录0：深度学习基础复习与面试准备/index.md"
+    },
+    {
+      "basename": "index",
+      "path": "Notion/LLM/index.md"
+    },
+    {
+      "basename": "index",
+      "path": "Notion/LLM/RL基础/index.md"
+    },
+    {
+      "basename": "index",
+      "path": "Notion/LLM/RL基础/PPO DPO GRPO/ChatGPT-PPO 工程实现细节/index.md"
+    },
+    {
+      "basename": "index",
+      "path": "Notion/CS336/index.md"
+    },
+    {
+      "basename": "科研工作流闭环模型",
+      "path": "科研探索/科研工作流闭环模型.md"
+    },
+    {
+      "basename": "index",
+      "path": "Notion/CS336/Lecture2/index.md"
+    },
+    {
+      "basename": "test",
+      "path": "test.md"
+    },
+    {
+      "basename": "减少AI味道",
+      "path": "ai_prompt/减少AI味道.md"
+    },
+    {
+      "basename": "index",
+      "path": "Notion/CS336/RLHF/index.md"
+    },
+    {
+      "basename": "Windows笔记本改造成PVE服务器与双机架构规划",
+      "path": "开发相关/Windows笔记本改造成PVE服务器与双机架构规划.md"
+    },
+    {
+      "basename": "仓库分析提示词",
+      "path": "开发相关/仓库分析提示词.md"
     },
     {
       "basename": "Agentero_狗头论文阅读器",
@@ -29,24 +89,12 @@
       "path": "assets/Snipaste_2026-09-22_23-13-57.png"
     },
     {
-      "basename": "HermesSurface便签开发需求规约",
-      "path": "科研探索/HermesSurface便签开发需求规约.md"
-    },
-    {
       "basename": "image",
       "path": "Notion/CS336/RLHF/assets/image.png"
     },
     {
       "basename": "index",
-      "path": "Notion/CS336/Lecture2/index.md"
-    },
-    {
-      "basename": "index",
       "path": "Notion/CS336/推理/index.md"
-    },
-    {
-      "basename": "index",
-      "path": "Notion/CS336/内核优化&Trition/index.md"
     },
     {
       "basename": "index",
@@ -65,10 +113,6 @@
       "path": "科研探索/Slidev双端同步与公网分发架构.md"
     },
     {
-      "basename": "科研工作流闭环模型",
-      "path": "科研探索/科研工作流闭环模型.md"
-    },
-    {
       "basename": "高级格式改造",
       "path": "开发相关/new_oz相关提示词/高级格式改造.md"
     },
@@ -81,20 +125,12 @@
       "path": "开发相关/new_oz相关提示词/p10.md"
     },
     {
-      "basename": "test",
-      "path": "test.md"
-    },
-    {
       "basename": "README",
       "path": "README.md"
     },
     {
       "basename": "Dashboard",
       "path": "Dashboard.md"
-    },
-    {
-      "basename": "未命名",
-      "path": "未命名.canvas"
     },
     {
       "basename": "未命名",
