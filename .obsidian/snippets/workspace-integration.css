@@ -81,3 +81,27 @@ body .status-bar-item.vim-cmd-stack-item {
   background-image: none !important;
   background-size: auto !important;
 }
+
+/* 1. 彻底清除 Vim 模式下的灰色当前行底色 */
+.cm-activeLine,
+.cm-activeLineGutter,
+.markdown-source-view.mod-cm6 .cm-activeLine {
+  background-color: transparent !important;
+}
+
+/* 2. 彻底根治实时预览下的行号宽度跳动 (Gutter Jitter) */
+.cm-gutters,
+.cm-lineNumbers,
+.cm-gutterElement,
+.cm-relativeLineNumbers-absolute {
+  font-family: var(--font-monospace) !important;
+  font-feature-settings: "tnum" 1 !important;
+  font-variant-numeric: tabular-nums !important;
+  min-width: 4ch !important;
+  text-align: right !important;
+  box-sizing: border-box !important;
+}
+
+.cm-gutters {
+  min-width: 5.5ch !important;
+}
