@@ -1,5 +1,5 @@
 {
-  "cssTheme": "ITS Theme",
+  "cssTheme": "AbsolutelyGlass",
   "monospaceFontFamily": "Maple Mono NF CN",
   "textFontFamily": "",
   "interfaceFontFamily": "",
@@ -12,6 +12,7 @@
     "workspace-integration",
     "smooth-folding",
     "hierarchical-bullets",
-    "parchment-epic"
+    "parchment-epic",
+    "cyber-breath"
   ]
 }

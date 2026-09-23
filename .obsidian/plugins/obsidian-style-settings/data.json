@@ -6,5 +6,9 @@
   "ITS@@notion": false,
   "ITS@@accent-color": false,
   "ITS@@slrvb-b": false,
-  "magicuser-theme-for-obsidian@@mu-presets-themes": "magicuser-gray-theme"
+  "magicuser-theme-for-obsidian@@mu-presets-themes": "magicuser-gray-theme",
+  "cyberglow-settings@@cg-colored-bold": true,
+  "cyberglow-settings@@cg-colored-italic": true,
+  "cyberglow-settings@@cg-colored-headings": true,
+  "blue-topaz-theme@@color-scheme-options": "null"
 }
