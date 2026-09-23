@@ -1,107 +1,28 @@
-/* Theme-neutral integration only. Backgrounds and glass belong to theme CSS. */
-body :is(#editingToolbarModalBar, #editingToolbarPopoverBar),
-body :is(#editingToolbarModalBar, #editingToolbarPopoverBar) .subitem {
-  background: var(--background-secondary) !important;
-  color: var(--text-normal) !important;
-  border: 1px solid var(--background-modifier-border) !important;
-  border-radius: 8px !important;
-  box-shadow: none;
-  box-sizing: border-box;
-}
 
-/* Keep the top bar in header flow; floating modes retain plugin coordinates. */
-body #editingToolbarModalBar.top {
-  position: relative;
-  margin: 6px 12px;
-  width: calc(100% - 24px);
-  min-width: 0;
-  height: auto;
-  min-height: 36px;
-  flex-shrink: 0;
-  flex-wrap: wrap;
-  justify-content: flex-start;
-  gap: 2px;
-  padding: 3px 6px;
-}
-
-body :is(#editingToolbarModalBar, #editingToolbarPopoverBar)
-:is(button, .clickable-icon, .editingToolbarCommandItem) {
-  background: transparent;
-  color: var(--text-normal) !important;
-  border-radius: 6px;
-  box-shadow: none;
-}
-
-body :is(#editingToolbarModalBar, #editingToolbarPopoverBar)
-:is(button, .clickable-icon, .editingToolbarCommandItem):is(:hover, :focus-visible, [aria-pressed="true"]) {
-  background: var(--background-modifier-hover) !important;
-}
-
-body :is(#editingToolbarModalBar, #editingToolbarPopoverBar)
-:is(button, .clickable-icon):focus-visible {
-  outline: 2px solid var(--interactive-accent);
-  outline-offset: 1px;
-}
-
-/* Replace the plugin's fixed gray arrow with the current theme's text color. */
-body :is(#editingToolbarModalBar, #editingToolbarPopoverBar)
-button[class^="editingToolbarCommandsubItem"]::after {
-  content: "";
-  width: 4px;
-  height: 4px;
-  border-right: 1px solid currentColor;
-  border-bottom: 1px solid currentColor;
-  transform: rotate(45deg);
-  margin: 0 3px 3px 5px;
-}
-
-/* Preserve Vim's mode colors and conditional showcmd visibility. */
-body .status-bar-item:is(.vim-mode-status-item, .vim-cmd-stack-item) {
-  font-family: var(--font-monospace) !important;
-  font-weight: 600 !important;
-  flex-shrink: 0;
-  white-space: pre;
-  animation: none !important;
-  box-shadow: none !important;
-}
-
-body .status-bar-item.vim-cmd-stack-item {
-  background: var(--background-secondary) !important;
-  color: var(--text-normal) !important;
-  border: 1px solid var(--background-modifier-border) !important;
-}
-
-/* 彻底抹除编辑区任何噪点、斜向拉丝渐变与残余条纹 */
-.workspace-leaf-content,
-.workspace-leaf-content .view-content,
-.markdown-source-view,
-.cm-scroller,
-.cm-content,
-.markdown-reading-view {
-  background-image: none !important;
-  background-size: auto !important;
-}
-
-/* 1. 彻底清除 Vim 模式下的灰色当前行底色 */
+/* 1. 彻底清除活动行背景底色与边框色块，保持毛玻璃通透无瑕 */
 .cm-activeLine,
 .cm-activeLineGutter,
-.markdown-source-view.mod-cm6 .cm-activeLine {
+.markdown-source-view.mod-cm6 .cm-activeLine,
+.markdown-source-view.mod-cm6 .cm-activeLineGutter {
   background-color: transparent !important;
 }
 
-/* 2. 彻底根治实时预览下的行号宽度跳动 (Gutter Jitter) */
-.cm-gutters,
-.cm-lineNumbers,
-.cm-gutterElement,
-.cm-relativeLineNumbers-absolute {
+/* 2. 原生单列行号完美对齐与字型约束 */
+.cm-gutters {
+  background-color: transparent !important;
+  border-right: none !important;
+}
+
+.cm-lineNumbers .cm-gutterElement {
   font-family: var(--font-monospace) !important;
   font-feature-settings: "tnum" 1 !important;
   font-variant-numeric: tabular-nums !important;
-  min-width: 4ch !important;
-  text-align: right !important;
-  box-sizing: border-box !important;
+  padding-right: 8px !important;
+  color: var(--text-faint) !important;
 }
 
-.cm-gutters {
-  min-width: 5.5ch !important;
+/* 当前光标所在行的绝对行号高亮：加粗且呈现主题强调色，不生成多余背景块 */
+.cm-lineNumbers .cm-gutterElement.cm-activeLineGutter {
+  color: var(--text-accent, var(--interactive-accent)) !important;
+  font-weight: 700 !important;
 }
