@@ -1,12 +1,12 @@
 {
-  "cssTheme": "Everforest",
+  "cssTheme": "ITS Theme",
   "monospaceFontFamily": "Maple Mono NF CN",
-  "textFontFamily": "Maple Mono NF CN",
-  "interfaceFontFamily": "Maple Mono NF CN",
+  "textFontFamily": "",
+  "interfaceFontFamily": "",
   "baseFontSizeAction": true,
   "accentColor": "#7aa2f7",
   "baseFontSize": 14,
-  "theme": "moonstone",
+  "theme": "system",
   "translucency": true,
   "enabledCssSnippets": [
     "workspace-integration",
